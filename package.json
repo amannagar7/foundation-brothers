@@ -1,0 +1,20 @@
+{
+  "name": "foundation-brothers",
+  "version": "0.1.0",
+  "description": "Foundation Brothers website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i ./styles/input.css -o ./styles/output.css --minify",
+    "dev": "tailwindcss -i ./styles/input.css -o ./styles/output.css --watch"
+  },
+  "keywords": [],
+  "author": "Foundation Brothers <info@foundationbrothers.in>",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13"
+  }
+}

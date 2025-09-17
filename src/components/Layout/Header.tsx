@@ -12,28 +12,20 @@ const Header: React.FC = () => {
     })
   }
 
-  const scrollToContact = () => {
-    if (location.pathname === '/contact') {
-      const contactSection = document.getElementById('contact-form')
-      contactSection?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      window.location.href = '/contact'
-    }
-  }
 
   const isActive = (path: string) => location.pathname === path
 
   return (
     <>
-      {/* Top Information Bar - Apple-Like */}
-      <div className="bg-gray-50/60 border-b border-gray-100/50">
-        <div className="container-custom">
-          <div className="flex justify-between items-center py-3 text-xs text-gray-600">
+      {/* Top Information Bar - Reidius Infra Style */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-3 text-xs text-gray-900">
             {/* Contact Information */}
             <div className="flex items-center space-x-8">
-              <div className="flex items-center space-x-2 hover:text-gray-900 transition-colors duration-300 cursor-pointer group">
-                <span className="text-gray-400 group-hover:text-gray-600">📧</span>
-                <span>info@foundationbrothers.in</span>
+              <div className="flex items-center space-x-2">
+                <span className="text-gray-600">📧</span>
+                <span>Email: info@foundationbrothers.in</span>
                 <button 
                   onClick={() => copyToClipboard('info@foundationbrothers.in')}
                   className="text-gray-400 hover:text-gray-600 transition-colors duration-300 ml-1"
@@ -42,9 +34,9 @@ const Header: React.FC = () => {
                 </button>
               </div>
               
-              <div className="flex items-center space-x-2 hover:text-gray-900 transition-colors duration-300 cursor-pointer group">
-                <span className="text-gray-400 group-hover:text-gray-600">📞</span>
-                <span>+91 7374940023</span>
+              <div className="flex items-center space-x-2">
+                <span className="text-gray-600">📞</span>
+                <span>Contact: +91 7374940023</span>
                 <button 
                   onClick={() => copyToClipboard('+91 7374940023')}
                   className="text-gray-400 hover:text-gray-600 transition-colors duration-300 ml-1"
@@ -53,8 +45,8 @@ const Header: React.FC = () => {
                 </button>
               </div>
               
-              <div className="flex items-center space-x-2 hover:text-gray-900 transition-colors duration-300 cursor-pointer group">
-                <span className="text-gray-400 group-hover:text-gray-600">🔧</span>
+              <div className="flex items-center space-x-2">
+                <span className="text-gray-600">🔧</span>
                 <span>Maintenance: +91 7374940023</span>
                 <button 
                   onClick={() => copyToClipboard('+91 7374940023')}
@@ -66,10 +58,10 @@ const Header: React.FC = () => {
             </div>
             
             {/* Right Side Actions */}
-            <div className="flex items-center space-x-6">
-              {/* Free Quote Badge */}
-              <div className="bg-gray-900 text-white px-3 py-1.5 rounded-full text-xs font-medium tracking-wide">
-                FREE QUOTE
+            <div className="flex items-center space-x-4">
+              {/* Free Badge */}
+              <div className="bg-yellow-400 text-black px-3 py-1.5 rounded-full text-xs font-bold tracking-wide">
+                FREE
               </div>
               
               {/* WhatsApp Button */}
@@ -77,85 +69,78 @@ const Header: React.FC = () => {
                 href="https://wa.me/917374940023" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 hover:text-gray-900 transition-colors duration-300 group"
+                className="flex items-center space-x-2 hover:text-gray-700 transition-colors duration-300 group"
               >
-                <span className="text-green-600 group-hover:text-green-700">💬</span>
+                <span className="text-green-500 group-hover:text-green-600">💬</span>
                 <span className="font-medium">Book appointment now</span>
-                <span className="text-gray-400 group-hover:text-gray-600 transition-transform duration-300 group-hover:translate-x-1">→</span>
+                <span className="text-gray-500 group-hover:text-gray-700 transition-transform duration-300 group-hover:translate-x-1">→</span>
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Main Header - Clean & Minimalist */}
-      <header className="bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container-custom">
+      {/* Main Header - Reidius Infra Style */}
+      <header className="bg-gray-100 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             {/* Logo and Brand */}
             <Link to="/" className="flex items-center group">
               <img 
                 src="/assets/logo.png" 
                 alt="Foundation Brothers" 
-                className="h-12 w-auto mr-4 transition-transform duration-300 group-hover:scale-105"
+                className="h-10 w-auto mr-3 transition-transform duration-300 group-hover:scale-105"
               />
-              <span className="text-2xl font-light text-gray-900 tracking-tight">Foundation Brothers</span>
+              <span className="text-2xl font-bold text-gray-900 tracking-tight">Foundation Brothers</span>
             </Link>
             
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-12">
+            {/* Desktop Navigation - Centered */}
+            <nav className="hidden lg:flex space-x-12">
               <Link 
-                to="/" 
-                className={`text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-300 ${isActive('/') ? 'text-gray-900' : ''}`}
+                to="/all-projects" 
+                className={`text-sm font-medium hover:text-gray-900 transition-colors duration-300 ${isActive('/all-projects') ? 'text-gray-900 font-bold' : 'text-gray-600'}`}
               >
-                Home
+                All Projects
               </Link>
               <Link 
                 to="/about" 
-                className={`text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-300 ${isActive('/about') ? 'text-gray-900' : ''}`}
+                className={`text-sm font-medium hover:text-gray-900 transition-colors duration-300 ${isActive('/about') ? 'text-gray-900 font-bold' : 'text-gray-600'}`}
               >
-                About
+                About Us
               </Link>
               <Link 
-                to="/services" 
-                className={`text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-300 ${isActive('/services') ? 'text-gray-900' : ''}`}
+                to="/careers" 
+                className={`text-sm font-medium hover:text-gray-900 transition-colors duration-300 ${isActive('/careers') ? 'text-gray-900 font-bold' : 'text-gray-600'}`}
               >
-                Services
-              </Link>
-              <Link 
-                to="/projects" 
-                className={`text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-300 ${isActive('/projects') ? 'text-gray-900' : ''}`}
-              >
-                Projects
+                Careers
               </Link>
               <Link 
                 to="/contact" 
-                className={`text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-300 ${isActive('/contact') ? 'text-gray-900' : ''}`}
+                className={`text-sm font-medium hover:text-gray-900 transition-colors duration-300 ${isActive('/contact') ? 'text-gray-900 font-bold' : 'text-gray-600'}`}
               >
                 Contact
+              </Link>
+              <Link 
+                to="/learn" 
+                className={`text-sm font-medium hover:text-gray-900 transition-colors duration-300 ${isActive('/learn') ? 'text-gray-900 font-bold' : 'text-gray-600'}`}
+              >
+                Learn
               </Link>
             </nav>
             
             {/* Desktop CTA Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
-              <Link 
-                to="/projects" 
-                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-300"
-              >
-                Portfolio
-              </Link>
-              
-              <Link 
-                to="/contact" 
-                className="bg-gray-900 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors duration-300"
-              >
-                Get Started
-              </Link>
+            <div className="hidden lg:flex items-center">
+              <button className="flex items-center space-x-2 bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+                <span>Download Portfolio</span>
+              </button>
             </div>
             
             {/* Mobile Menu Button */}
             <button 
-              className="md:hidden text-2xl text-gray-600 hover:text-gray-800 transition"
+              className="lg:hidden text-2xl text-gray-600 hover:text-gray-800 transition"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? '✕' : '☰'}
@@ -164,59 +149,51 @@ const Header: React.FC = () => {
           
           {/* Mobile Navigation Menu */}
           {isMobileMenuOpen && (
-            <div className="md:hidden border-t border-gray-100 py-4">
+            <div className="lg:hidden border-t border-gray-200 py-4">
               <nav className="flex flex-col space-y-4">
                 <Link 
-                  to="/" 
-                  className={`text-sm font-medium py-2 ${isActive('/') ? 'text-gray-900' : 'text-gray-600'}`}
+                  to="/all-projects" 
+                  className={`text-sm font-medium py-2 ${isActive('/all-projects') ? 'text-gray-900 font-bold' : 'text-gray-600'}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Home
+                  All Projects
                 </Link>
                 <Link 
                   to="/about" 
-                  className={`text-sm font-medium py-2 ${isActive('/about') ? 'text-gray-900' : 'text-gray-600'}`}
+                  className={`text-sm font-medium py-2 ${isActive('/about') ? 'text-gray-900 font-bold' : 'text-gray-600'}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  About
+                  About Us
                 </Link>
                 <Link 
-                  to="/services" 
-                  className={`text-sm font-medium py-2 ${isActive('/services') ? 'text-gray-900' : 'text-gray-600'}`}
+                  to="/careers" 
+                  className={`text-sm font-medium py-2 ${isActive('/careers') ? 'text-gray-900 font-bold' : 'text-gray-600'}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Services
-                </Link>
-                <Link 
-                  to="/projects" 
-                  className={`text-sm font-medium py-2 ${isActive('/projects') ? 'text-gray-900' : 'text-gray-600'}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Projects
+                  Careers
                 </Link>
                 <Link 
                   to="/contact" 
-                  className={`text-sm font-medium py-2 ${isActive('/contact') ? 'text-gray-900' : 'text-gray-600'}`}
+                  className={`text-sm font-medium py-2 ${isActive('/contact') ? 'text-gray-900 font-bold' : 'text-gray-600'}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contact
                 </Link>
+                <Link 
+                  to="/learn" 
+                  className={`text-sm font-medium py-2 ${isActive('/learn') ? 'text-gray-900 font-bold' : 'text-gray-600'}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Learn
+                </Link>
               </nav>
               <div className="mt-6 flex flex-col space-y-3">
-                <Link 
-                  to="/projects" 
-                  className="text-sm font-medium text-gray-600 text-center py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Portfolio
-                </Link>
-                <Link 
-                  to="/contact" 
-                  className="bg-gray-900 text-white text-center py-2.5 rounded-full text-sm font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Get Started
-                </Link>
+                <button className="flex items-center justify-center space-x-2 bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                  <span>Download Portfolio</span>
+                </button>
               </div>
             </div>
           )}

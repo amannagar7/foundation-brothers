@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react'
 
 const Footer: React.FC = () => {
   return (
@@ -41,32 +42,40 @@ const Footer: React.FC = () => {
               {/* Social Media */}
               <div className="flex space-x-4">
                 <a 
-                  href="#" 
+                  href="https://facebook.com/foundationbrothers" 
                   className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-all duration-300"
                   aria-label="Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <span className="text-xl">📘</span>
+                  <Facebook className="h-5 w-5" />
                 </a>
                 <a 
-                  href="#" 
+                  href="https://instagram.com/foundationbrothers" 
                   className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-all duration-300"
                   aria-label="Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <span className="text-xl">📷</span>
+                  <Instagram className="h-5 w-5" />
                 </a>
                 <a 
-                  href="#" 
+                  href="https://www.youtube.com/@foundationbrothers" 
                   className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-all duration-300"
                   aria-label="YouTube"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <span className="text-xl">📺</span>
+                  <Youtube className="h-5 w-5" />
                 </a>
                 <a 
-                  href="#" 
+                  href="https://www.linkedin.com/company/foundationbrothers" 
                   className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-all duration-300"
                   aria-label="LinkedIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <span className="text-xl">💼</span>
+                  <Linkedin className="h-5 w-5" />
                 </a>
               </div>
             </div>
@@ -92,7 +101,6 @@ const Footer: React.FC = () => {
                 <li><Link to="/projects" className="hover:text-gray-900 transition-colors">Our Projects</Link></li>
                 <li><Link to="/contact" className="hover:text-gray-900 transition-colors">Contact Us</Link></li>
                 <li><a href="#" className="hover:text-gray-900 transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Testimonials</a></li>
                 <li><a href="#" className="hover:text-gray-900 transition-colors">Blog</a></li>
               </ul>
             </div>
@@ -119,32 +127,13 @@ const Footer: React.FC = () => {
               <div className="space-y-4 text-gray-700">
                 <h4 className="text-sm uppercase tracking-widest text-gray-500">Legal</h4>
                 <ul className="space-y-2">
-                  <li><a href="#" className="hover:text-gray-900 transition-colors">Privacy Policy</a></li>
-                  <li><a href="#" className="hover:text-gray-900 transition-colors">Terms & Conditions</a></li>
-                  <li><a href="#" className="hover:text-gray-900 transition-colors">Refund Policy</a></li>
-                  <li><a href="#" className="hover:text-gray-900 transition-colors">Disclaimer</a></li>
+                  <li><Link to="/privacy" className="hover:text-gray-900 transition-colors">Privacy Policy</Link></li>
+                  <li><Link to="/terms" className="hover:text-gray-900 transition-colors">Terms & Conditions</Link></li>
                 </ul>
               </div>
             </div>
           </div>
           
-          {/* Newsletter Signup */}
-          <div className="mt-16 pt-10 border-t border-gray-200">
-            <div className="max-w-lg mx-auto text-center">
-              <h3 className="text-2xl font-light text-gray-900 mb-3">Stay Updated</h3>
-              <p className="text-gray-600 mb-6">Get the latest updates on our projects and services</p>
-              <div className="flex">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
-                  className="flex-1 px-6 py-4 bg-gray-50 text-gray-900 rounded-l-full focus:outline-none focus:ring-2 focus:ring-gray-900/10 border border-gray-200"
-                />
-                <button className="bg-gray-900 text-white px-8 py-4 rounded-r-full font-medium text-sm tracking-wide hover:bg-black transition-all duration-300">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </footer>
 
@@ -152,10 +141,10 @@ const Footer: React.FC = () => {
       <div className="bg-gray-50 text-gray-600 py-8 border-t border-gray-200">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="">&copy; 2024 Foundation Brothers. All rights reserved.</p>
+            <p className="">&copy; 2025 Foundation Brothers. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-gray-900 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-gray-900 transition-colors">Terms of Service</a>
+              <Link to="/privacy" className="hover:text-gray-900 transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-gray-900 transition-colors">Terms of Service</Link>
               <a href="#" className="hover:text-gray-900 transition-colors">Sitemap</a>
             </div>
           </div>

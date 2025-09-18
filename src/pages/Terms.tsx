@@ -2,7 +2,7 @@ import { ChevronRight } from "lucide-react";
 
 export default function TermsAndConditionsPage() {
   const enquiryPhone = "+91 7374940023";
-  const email = "info@foundationbrothers.in";
+  const email = "info.foundationbrothers@gmail.com";
 
   return (
     <main className="min-h-screen bg-background text-foreground">

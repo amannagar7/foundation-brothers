@@ -20,14 +20,11 @@ const About: React.FC = () => {
   ]
 
   const leaders = [
-    { img: '/assets/Aman-Nagar-Founder.jpg', name: 'Aman Nagar', role: 'Founder & MD' },
-    { img: '/assets/Sonali-Yadav.jpg', name: 'Sonali Yadav', role: 'President (Commercials)' },
-    { img: '/assets/Shweta-Patel.jpg', name: 'Shweta Patel', role: 'M.Arch, Senior Architect' },
-    { img: '/assets/Deepika-Mehta.jpg', name: 'Deepika Mehta', role: 'Project Architect' },
-    { img: '/assets/Sonia-Joshi.jpg', name: 'Sonia Joshi', role: 'Project Architect' },
-    { img: '/assets/Sneha-Chaudhary.jpg', name: 'Sneha Chaudhary', role: 'Senior Designer' },
-    { img: '/assets/Kiran-Agarwal.jpg', name: 'Kiran Agarwal', role: 'Design Lead' },
-    { img: '/assets/Tanuja-Bansal.jpg', name: 'Tanuja Bansal', role: 'Project Manager' },
+    // Co-founders and MDs
+    { img: '/assets/co-founder/ER-Aman-Nagar.jpeg', name: 'ER. Aman Nagar', role: 'Co‑Founder & MD' },
+    { img: '/assets/co-founder/ER-Shahrukh-Khan.jpg', name: 'ER. Shahrukh Khan', role: 'Co‑Founder & MD' },
+    { img: '/assets/co-founder/ER-Ravi-Batra.jpg', name: 'ER. Ravi Batra', role: 'Co‑Founder & MD' },
+    // Core leadership team (requested profiles retained)
     { img: '/assets/Aarav-Sharma.jpg', name: 'Aarav Sharma', role: 'Architect' },
     { img: '/assets/Rajeev-Gupta.jpg', name: 'Rajeev Gupta', role: 'Architect' },
     { img: '/assets/Vikram-Singh.jpg', name: 'Vikram Singh', role: 'Site Lead' },

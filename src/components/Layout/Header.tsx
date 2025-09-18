@@ -25,9 +25,9 @@ const Header: React.FC = () => {
             <div className="flex items-center space-x-8">
               <div className="flex items-center space-x-2">
                 <span className="text-gray-600">📧</span>
-                <span>Email: info@foundationbrothers.in</span>
+                <span>Email: info.foundationbrothers@gmail.com</span>
                 <button 
-                  onClick={() => copyToClipboard('info@foundationbrothers.in')}
+                  onClick={() => copyToClipboard('info.foundationbrothers@gmail.com')}
                   className="text-gray-400 hover:text-gray-600 transition-colors duration-300 ml-1"
                 >
                   📋

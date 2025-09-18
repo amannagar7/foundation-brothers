@@ -1,97 +1,22 @@
 
-export default function Learn() {
-  // Static demo content for now; can be wired to a CMS later
-  const posts: Array<{
-    id: number;
-    title: string;
-    excerpt: string;
-    date: string; // ISO
-    author: string;
-    category: string;
-    image: string;
-    href: string;
-  }> = [
-    {
-      id: 1,
-      title:
-        '5 Smart Technologies We Use to Build Better, Faster & Smarter Homes',
-      excerpt:
-        "Building your own home can be overwhelming. From finding the right construction company to selecting layouts, sourcing materials, and managing timelines—there are countless decisions to make. That’s why Foundation Brothers exists: to simplify this entire journey and help you build the home you’ve always dreamed of.",
-      date: '2025-04-29',
-      author: 'Ram Kumawat',
-      category: 'Architecture',
-      image:
-        'https://images.unsplash.com/photo-1611162618071-b39a2ecf2c0a?q=80&w=1600&auto=format&fit=crop',
-      href: '/blog/5-smart-technologies',
-    },
-    {
-      id: 2,
-      title:
-        'Why Foundation Brothers is Your One-Stop Destination for Dream Homes',
-      excerpt:
-        'From concept to completion, discover how our architecture-first approach delivers great homes.',
-      date: '2025-04-29',
-      author: 'Ram Kumawat',
-      category: 'Commercial',
-      image:
-        'https://images.unsplash.com/photo-1437419764061-2473afe69fc2?q=80&w=1200&auto=format&fit=crop',
-      href: '/blog/reidius-one-stop-destination',
-    },
-    {
-      id: 3,
-      title:
-        'Building Your First Home? Here’s Everything You Need to Know',
-      excerpt:
-        'Key decisions, budget planning, and timelines explained step-by-step.',
-      date: '2025-04-29',
-      author: 'Ram Kumawat',
-      category: 'Residence',
-      image:
-        'https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=1200&auto=format&fit=crop',
-      href: '/blog/building-first-home-guide',
-    },
-    {
-      id: 4,
-      title: 'How We Design Interiors that Age Gracefully',
-      excerpt: 'Material choices, lighting, and functional planning for longevity.',
-      date: '2025-04-29',
-      author: 'Ram Kumawat',
-      category: 'Interior',
-      image:
-        'https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=80&w=1200&auto=format&fit=crop',
-      href: '/blog/interiors-age-gracefully',
-    },
-    {
-      id: 5,
-      title: 'Commercial Spaces that Boost Productivity',
-      excerpt: 'Design principles for modern workplaces that perform.',
-      date: '2025-04-29',
-      author: 'Ram Kumawat',
-      category: 'Commercial',
-      image:
-        'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop',
-      href: '/blog/productive-commercial-spaces',
-    },
-    {
-      id: 6,
-      title: 'Residence Facades: Trends that Actually Last',
-      excerpt: 'Balance curb appeal with climate and maintenance.',
-      date: '2025-04-29',
-      author: 'Ram Kumawat',
-      category: 'Residence',
-      image:
-        'https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop',
-      href: '/blog/residence-facade-trends',
-    },
-  ]
+import { listPosts } from "../lib/blog";
 
-  const categories = [
-    'All Projects',
-    'Architecture',
-    'Interior',
-    'Residence',
-    'Commercial',
-  ]
+export default function Learn() {
+  // Pull published posts from Blog Manager storage
+  const posts = listPosts()
+    .filter((p) => p.status === "published")
+    .map((p, idx) => ({
+      id: idx + 1,
+      title: p.title,
+      excerpt: p.excerpt || "",
+      date: new Date(p.publishedAt || p.updatedAt).toISOString(),
+      author: p.author || "Editorial",
+      category: (p.tags && p.tags[0]) || "Blog",
+      image: p.featuredImageUrl || "/assets/Architecture/Architecture-1.jpg",
+      href: `/blog/${p.slug}`,
+    }));
+
+  const categories = ["All", ...Array.from(new Set(posts.map((p) => p.category)))];
 
   return (
     <main className="min-h-screen">

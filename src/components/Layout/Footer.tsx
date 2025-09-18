@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
               <div className="space-y-3 text-gray-600 mb-8">
                 <p className="flex items-center">
                   <span className="mr-3 text-xl">📧</span>
-                  <span>info@foundationbrothers.in</span>
+                  <span>info.foundationbrothers@gmail.com</span>
                 </p>
                 <p className="flex items-center">
                   <span className="mr-3 text-xl">📞</span>

@@ -4,7 +4,7 @@ import { Mail, MapPin, Phone, ArrowUpRight, MessageCircle } from "lucide-react";
 const Contact: React.FC = () => {
   const enquiryPhone = "+917374940023";
   const maintenancePhone = "+917374940023";
-  const email = "info@foundationbrothers.in";
+  const email = "info.foundationbrothers@gmail.com";
   const address = "Mansarovar, Jaipur, Rajasthan, India";
   const gmapUrl = "https://www.google.com/maps?q=26.9124,75.7873&hl=en&z=14";
 
@@ -59,15 +59,7 @@ const Contact: React.FC = () => {
           <div className="rounded-lg bg-yellow-200/50 p-2 sm:p-3">
             <h2 className="text-xl sm:text-2xl font-semibold">Send us your enquiry, get a call back from us</h2>
             <p className="mt-1 text-sm">We’ll call you within 2 working days</p>
-            <form className="mt-5 grid gap-3">
-              <LabeledInput placeholder="Name" />
-              <LabeledInput placeholder="Phone Number" inputMode="tel" />
-              <LabeledInput placeholder="Email" type="email" />
-              <LabeledTextarea placeholder="Message" rows={5} />
-              <button type="button" className="mt-2 inline-flex h-11 items-center justify-center rounded-md bg-neutral-900 px-4 text-sm font-medium text-white hover:opacity-90">
-                Submit
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </section>
@@ -206,5 +198,58 @@ function LabeledTextarea({ className = "", ...props }: React.TextareaHTMLAttribu
       className={`w-full rounded-md border border-input bg-white/90 px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/60 ${className}`}
       {...props}
     />
+  );
+}
+
+function ContactForm() {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [phone, setPhone] = React.useState("");
+  const [message, setMessage] = React.useState("");
+  const [status, setStatus] = React.useState<"idle"|"sending"|"ok"|"error">("idle");
+  const [error, setError] = React.useState<string | null>(null);
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    setStatus("sending");
+    try {
+      const res = await fetch("http://localhost:5174/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, message }),
+      });
+      const data = await res.json();
+      if (!res.ok || data.error) {
+        throw new Error(data.error || "Failed to send");
+      }
+      setStatus("ok");
+      setName(""); setEmail(""); setPhone(""); setMessage("");
+    } catch (err: any) {
+      setError(err.message || "Something went wrong");
+      setStatus("error");
+    }
+  };
+
+  return (
+    <form onSubmit={onSubmit} className="mt-5 grid gap-3">
+      {status === "ok" && (
+        <div className="rounded-md border border-green-600/30 bg-green-50 p-3 text-sm text-green-800">
+          Thanks! We’ve received your message. A confirmation email has been sent to you.
+        </div>
+      )}
+      {error && (
+        <div className="rounded-md border border-destructive/30 bg-destructive/10 p-3 text-sm text-destructive">
+          {error}
+        </div>
+      )}
+      <LabeledInput placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
+      <LabeledInput placeholder="Phone Number" inputMode="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
+      <LabeledInput placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+      <LabeledTextarea placeholder="Message" rows={5} value={message} onChange={(e) => setMessage(e.target.value)} required />
+      <button type="submit" disabled={status === "sending"} className="mt-2 inline-flex h-11 items-center justify-center rounded-md bg-neutral-900 px-4 text-sm font-medium text-white hover:opacity-90 disabled:opacity-60">
+        {status === "sending" ? "Sending…" : "Submit"}
+      </button>
+    </form>
   );
 }

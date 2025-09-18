@@ -1,6 +1,7 @@
 // Simple contact API using Express + Nodemailer
 // Env required: SMTP_USER, SMTP_PASS, BRAND_TO=info.foundationbrothers@gmail.com, BRAND_NAME=Foundation Brothers, BRAND_ADDRESS
 
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';

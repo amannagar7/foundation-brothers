@@ -32,6 +32,11 @@ export default async function handler(req, res) {
 
   try {
     if (req.method === 'GET') {
+      // Quick debug: /api/blog?debug=1
+      const hasDebug = (req.url || '').includes('debug=')
+      if (hasDebug) {
+        return res.json({ ok: true, repo: REPO, hasToken: Boolean(TOKEN), postsDir: POSTS_DIR })
+      }
       // List posts by directory listing; return filenames and minimal meta
       const list = await github(`repos/${REPO}/contents/${POSTS_DIR}`)
       const posts = Array.isArray(list)

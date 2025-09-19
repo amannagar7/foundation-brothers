@@ -1,5 +1,4 @@
 // Serverless API for Blog using Vercel Blob (no external DB)
-export const config = { runtime: 'nodejs20.x' }
 import { list, put } from '@vercel/blob'
 const POSTS_PREFIX = 'blog/posts/'
 

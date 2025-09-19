@@ -163,8 +163,32 @@ const Home: React.FC = () => {
             <p className="text-lg text-gray-600">Our offerings include:</p>
           </div>
 
-          {/* Marquee wrapper */}
-          <div className="marquee marquee-mask">
+          {/* Mobile: Vertical stack, Desktop: Horizontal marquee */}
+          <div className="sm:hidden">
+            <div className="grid gap-4">
+              {[
+                { title: 'Construction & Management', img: '/assets/construction-and-management.jpg' },
+                { title: 'Commercial Design', img: '/assets/commercial-design.jpg' },
+                { title: 'Interior Design & Construction', img: '/assets/interior-design-and-construction.jpg' },
+                { title: 'Home Design & Construction', img: '/assets/home-design-and-construction.jpg' },
+              ].map((card, idx) => (
+                <div key={idx} className="bg-white rounded-2xl border border-gray-100 shadow-subtle overflow-hidden hover:shadow-lg transition-all duration-300">
+                  <div className="p-4">
+                    <h3 className="text-lg font-light text-gray-900 mb-3 leading-snug">{card.title}</h3>
+                  </div>
+                  <div className="h-[160px] overflow-hidden">
+                    <img src={card.img} alt={card.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                  </div>
+                  <div className="p-4">
+                    <span className="text-sm font-medium text-gray-900 cursor-default select-none">Such projects →</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Marquee wrapper */}
+          <div className="hidden sm:block marquee marquee-mask">
             <div className="marquee-track gap-6">
               {/* Track 1 */}
               <div className="flex gap-6 px-1 py-2">

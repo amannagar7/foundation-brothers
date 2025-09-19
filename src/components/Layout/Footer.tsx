@@ -87,7 +87,6 @@ const Footer: React.FC = () => {
               <h3 className="text-sm uppercase tracking-widest text-gray-500 mb-6">Company</h3>
               <ul className="space-y-2 sm:space-y-3 text-gray-700">
                 <li><Link to="/about" className="hover:text-gray-900 transition-colors">About Us</Link></li>
-                <li><Link to="/projects" className="hover:text-gray-900 transition-colors">Our Projects</Link></li>
                 <li><Link to="/contact" className="hover:text-gray-900 transition-colors">Contact Us</Link></li>
                 <li><a href="#" className="hover:text-gray-900 transition-colors">Careers</a></li>
                 <li><a href="#" className="hover:text-gray-900 transition-colors">Blog</a></li>

@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   return (
     <div>
       {/* Hero Section - Apple-Like Split Design */}
-      <section className="min-h-screen bg-white relative overflow-hidden">
+      <section className="min-h-[70vh] sm:min-h-screen bg-white relative overflow-hidden">
         {/* Subtle Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 left-10 w-32 h-32 bg-gray-100 rounded-full opacity-20"></div>
@@ -18,12 +18,12 @@ const Home: React.FC = () => {
         </div>
         
         <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-3 gap-8 min-h-screen items-center py-20">
+          <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 min-h-[60vh] sm:min-h-screen items-center py-12 sm:py-20">
             
             {/* Left Side - Client Relaxation */}
             <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
               <div className="relative group mb-6 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
-                <div className="w-80 h-96 rounded-3xl overflow-hidden shadow-2xl shadow-gray-900/10 group-hover:shadow-3xl group-hover:shadow-gray-900/20 transition-all duration-500 group-hover:-translate-y-2">
+                <div className="w-64 h-80 sm:w-80 sm:h-96 rounded-3xl overflow-hidden shadow-2xl shadow-gray-900/10 group-hover:shadow-3xl group-hover:shadow-gray-900/20 transition-all duration-500 group-hover:-translate-y-2">
                   <img 
                     src="/assets/hero-section-man-happy-sitting.jpg" 
                     alt="Happy client relaxing" 
@@ -41,18 +41,18 @@ const Home: React.FC = () => {
             </div>
 
             {/* Center - Main Value Proposition */}
-            <div className="lg:col-span-1 flex flex-col items-center text-center">
+            <div className="lg:col-span-1 flex flex-col items-center text-center px-2">
               <div className="max-w-2xl">
                 <div className="text-sm font-medium text-gray-500 uppercase tracking-widest mb-6 animate-fade-in-up">
                   Welcome to Excellence
                 </div>
-                <h1 className="text-5xl lg:text-6xl font-light text-gray-900 leading-tight mb-4 animate-fade-in-up">
+                <h1 className="text-4xl lg:text-6xl font-light text-gray-900 leading-tight mb-2 sm:mb-4 animate-fade-in-up">
                   Where Dreams
                 </h1>
-                <h2 className="text-6xl lg:text-7xl font-light text-gray-900 leading-tight mb-4 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                <h2 className="text-5xl lg:text-7xl font-light text-gray-900 leading-tight mb-2 sm:mb-4 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
                   <span className="font-medium bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent">Meet Reality</span>
                 </h2>
-                <h3 className="text-5xl lg:text-6xl font-light text-gray-900 leading-tight animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+                <h3 className="text-4xl lg:text-6xl font-light text-gray-900 leading-tight animate-fade-in-up" style={{animationDelay: '0.4s'}}>
                   Foundation Brothers
                 </h3>
               </div>
@@ -61,7 +61,7 @@ const Home: React.FC = () => {
             {/* Right Side - Professional Execution */}
             <div className="lg:col-span-1 flex flex-col items-center lg:items-end">
               <div className="relative group mb-6 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
-                <div className="w-80 h-96 rounded-3xl overflow-hidden shadow-2xl shadow-gray-900/10 group-hover:shadow-3xl group-hover:shadow-gray-900/20 transition-all duration-500 group-hover:-translate-y-2">
+                <div className="w-64 h-80 sm:w-80 sm:h-96 rounded-3xl overflow-hidden shadow-2xl shadow-gray-900/10 group-hover:shadow-3xl group-hover:shadow-gray-900/20 transition-all duration-500 group-hover:-translate-y-2">
                   <img 
                     src="/assets/engineering-people-happy.jpg" 
                     alt="Professional engineering team" 

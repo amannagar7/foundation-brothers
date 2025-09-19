@@ -7,7 +7,7 @@ export default function TermsAndConditionsPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Breadcrumb */}
-      <section className="mx-auto max-w-6xl px-6 pt-8">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 pt-8">
         <nav className="flex items-center gap-2 text-sm text-muted-foreground">
           <a href="/" className="hover:underline">Home</a>
           <ChevronRight className="h-4 w-4" />
@@ -16,7 +16,7 @@ export default function TermsAndConditionsPage() {
       </section>
 
       {/* Content */}
-      <section className="mx-auto max-w-3xl px-6 pt-6 pb-12 sm:pb-16">
+      <section className="mx-auto max-w-3xl px-4 sm:px-6 pt-6 pb-12 sm:pb-16">
         <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">Terms and Conditions</h1>
         <p className="mt-3 text-sm text-muted-foreground">Effective Date: 24 Nov 2024</p>
 
@@ -188,7 +188,7 @@ export default function TermsAndConditionsPage() {
       </section>
 
       {/* CTA banner (same style as other pages) */}
-      <section className="mx-auto max-w-6xl px-6 pb-12 sm:pb-16">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-12 sm:pb-16">
         <div className="grid gap-6 md:grid-cols-2 items-center rounded-xl border border-border bg-secondary p-6 sm:p-8">
           <div>
             <h3 className="text-2xl font-semibold">Talk to our experts,We offer FREE consultation</h3>

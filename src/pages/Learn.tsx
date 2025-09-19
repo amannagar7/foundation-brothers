@@ -21,19 +21,19 @@ export default function Learn() {
   return (
     <main className="min-h-screen">
       {/* Page title */}
-      <section className="mx-auto max-w-6xl px-6 pt-10 sm:pt-14">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 pt-8 sm:pt-14">
         <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">
           Know more about our process
         </h1>
       </section>
 
       {/* Featured + Sidebar */}
-      <section className="mx-auto max-w-6xl px-6 pb-10 sm:pb-14">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-10 sm:pb-14">
         <PostsGrid posts={posts} categories={categories} />
       </section>
 
       {/* Design Inspirations */}
-      <section className="mx-auto max-w-6xl px-6 pb-6 sm:pb-8">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-6 sm:pb-8">
         <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
           Design Inspirations
         </h2>
@@ -55,7 +55,7 @@ export default function Learn() {
       </section>
 
       {/* Dual CTA cards */}
-      <section className="mx-auto max-w-6xl px-6 pb-12 sm:pb-16">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-12 sm:pb-16">
         <div className="grid gap-6 md:grid-cols-2">
           {/* Enquiry form visual card */}
           <div className="rounded-2xl bg-yellow-300/90 p-6 sm:p-8">
@@ -130,7 +130,7 @@ type PostsGridProps = {
 
 function PostsGrid({ posts }: PostsGridProps) {
   return (
-    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
       {posts.map((p) => (
         <a key={p.id} href={p.href} className="group rounded-2xl overflow-hidden border border-gray-200 hover:shadow-subtle transition">
           <div className="aspect-[16/10] w-full overflow-hidden bg-gray-50">

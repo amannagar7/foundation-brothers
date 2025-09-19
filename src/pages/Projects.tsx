@@ -74,7 +74,7 @@ const Projects: React.FC = () => {
   return (
     <div>
       {/* Page Header */}
-      <section className="hero-gradient py-32">
+      <section className="hero-gradient py-20 sm:py-28">
         <div className="container-custom section-padding">
           <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-hero text-gray-900 mb-8 text-balance">Our Projects</h1>
@@ -84,14 +84,14 @@ const Projects: React.FC = () => {
       </section>
 
       {/* Projects Filter */}
-      <section className="py-12 bg-subtle">
+      <section className="py-10 sm:py-12 bg-subtle">
         <div className="container-custom">
-          <div className="flex justify-center gap-4 flex-wrap">
+          <div className="flex justify-center gap-2 sm:gap-4 flex-wrap">
             {filters.map((filter) => (
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-8 py-4 rounded-full font-medium text-sm tracking-wide transition-all duration-300 ${
+                className={`px-5 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm tracking-wide transition-all duration-300 ${
                   activeFilter === filter.id
                     ? 'bg-gray-900 text-white shadow-lg'
                     : 'bg-white text-gray-600 hover:bg-gray-50 hover:border-gray-300 border border-gray-200'
@@ -107,11 +107,11 @@ const Projects: React.FC = () => {
       {/* Projects Grid */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-12">
             {filteredProjects.map((project) => (
               <div key={project.id} className="group">
                 <div className="bg-white rounded-3xl shadow-subtle overflow-hidden card-hover border-subtle">
-                  <div className="h-64 bg-gray-50 flex items-center justify-center text-8xl">
+                  <div className="h-48 sm:h-64 bg-gray-50 flex items-center justify-center text-7xl sm:text-8xl">
                     {project.image}
                   </div>
                   <div className="p-8">
@@ -161,14 +161,14 @@ const Projects: React.FC = () => {
       {/* Project Stats */}
       <section className="section-padding bg-subtle">
         <div className="container-custom">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 sm:mb-20">
             <h2 className="text-section-title text-gray-900 mb-6 text-balance">Project Statistics</h2>
             <p className="text-body-large max-w-3xl mx-auto text-balance">
               Our track record speaks for itself - delivering quality projects on time and within budget.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-4 gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
             <div className="text-center group">
               <div className="text-6xl font-light text-gray-900 mb-4 group-hover:scale-110 transition-transform duration-300">50+</div>
               <div className="text-lg text-gray-600">Projects Completed</div>
@@ -192,8 +192,8 @@ const Projects: React.FC = () => {
       {/* CTA Section */}
       <section className="section-padding bg-gray-900 text-white">
         <div className="container-custom text-center">
-          <h2 className="text-section-title mb-8 text-balance">Ready to Start Your Project?</h2>
-          <p className="text-body-large text-gray-300 mb-12 max-w-2xl mx-auto text-balance">
+          <h2 className="text-section-title mb-6 sm:mb-8 text-balance">Ready to Start Your Project?</h2>
+          <p className="text-body-large text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto text-balance">
             Let's discuss your project requirements and create something amazing together.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">

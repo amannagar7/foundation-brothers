@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Top: Get in touch + Form */}
-      <section className="mx-auto max-w-6xl px-6 pt-10 pb-12 sm:pt-14 sm:pb-16 grid gap-8 md:grid-cols-2">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 pt-8 pb-10 sm:pt-14 sm:pb-16 grid gap-8 md:grid-cols-2">
         {/* Left info */}
         <div>
           <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">Get in touch with us</h1>
@@ -66,7 +66,7 @@ const Contact: React.FC = () => {
       </section>
 
       {/* Map + hours */}
-      <section className="mx-auto max-w-6xl px-6 pb-12 sm:pb-16">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-12 sm:pb-16">
         <div className="flex items-center justify-between gap-4">
           <div>
             <h2 className="text-2xl font-semibold">Visit our office</h2>
@@ -87,7 +87,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-[360px,1fr]">
+        <div className="mt-6 grid gap-6 md:grid-cols-[320px,1fr]">
           <div className="rounded-xl bg-neutral-900 text-white p-6 flex flex-col">
             <h3 className="text-center text-lg font-medium">Our office hours</h3>
             <ul className="mt-4 grid grid-cols-2 gap-y-2 text-sm/6">
@@ -133,7 +133,7 @@ const Contact: React.FC = () => {
       </section>
 
       {/* CTA banner */}
-      <section className="mx-auto max-w-6xl px-6 pb-12 sm:pb-16">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-12 sm:pb-16">
         <div className="grid gap-6 md:grid-cols-2 items-center rounded-xl border border-border bg-secondary p-6 sm:p-8">
           <div>
             <h3 className="text-2xl font-semibold">Talk to our experts, We offer FREE consultation</h3>

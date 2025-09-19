@@ -41,25 +41,25 @@ const About: React.FC = () => {
   return (
     <div>
       {/* Hero Section - Background Image */}
-      <section className="relative min-h-[60vh] md:min-h-[70vh] lg:min-h-[75vh] overflow-hidden">
+      <section className="relative min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] overflow-hidden">
         <img src="/assets/about-us-hero-section.png" alt="About us" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/20" />
-        <div className="relative container-custom py-24 md:py-32">
+        <div className="relative container-custom py-16 sm:py-24 md:py-32">
           <div className="max-w-4xl text-white">
-            <h1 className="text-5xl md:text-6xl font-light tracking-tight mb-4">About Us</h1>
-            <p className="text-lg md:text-xl text-white/90">We are a design‑first construction company crafting modern, sustainable spaces.
+            <h1 className="text-4xl md:text-6xl font-light tracking-tight mb-3 sm:mb-4">About Us</h1>
+            <p className="text-base sm:text-lg md:text-xl text-white/90">We are a design‑first construction company crafting modern, sustainable spaces.
             </p>
           </div>
         </div>
       </section>
 
       {/* Stats Section (same styling as Homepage accomplishments) */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 sm:py-20 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-light text-gray-900 tracking-tight">Our accomplishments</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 items-start text-center">
             <div>
               <div className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight mb-2">120<span className="align-super text-2xl">*</span></div>
               <div className="text-gray-600 text-base md:text-lg">Days Guarantee To Build</div>
@@ -78,12 +78,12 @@ const About: React.FC = () => {
 
       {/* Mission & Story */}
       <section className="section-padding bg-white">
-        <div className="container-custom grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
+        <div className="container-custom grid lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-16 items-stretch">
           <div className="rounded-3xl border border-gray-100 shadow-subtle overflow-hidden bg-white">
             <div className="aspect-[16/10] w-full overflow-hidden">
               <img src="/assets/Our-Mission.jpg" alt="Our Mission" className="w-full h-full object-cover" />
                 </div>
-            <div className="p-8">
+            <div className="p-6 sm:p-8">
               <h3 className="text-2xl md:text-3xl font-light text-gray-900 mb-4">Our Mission</h3>
               <p className="text-gray-600">To deliver innovative, sustainable, and client-centric design solutions that enhance living and working environments.</p>
                 </div>
@@ -92,7 +92,7 @@ const About: React.FC = () => {
             <div className="aspect-[16/10] w-full overflow-hidden">
               <img src="/assets/Our-Story.jpg" alt="Our Story" className="w-full h-full object-cover" />
             </div>
-            <div className="p-8">
+            <div className="p-6 sm:p-8">
               <h3 className="text-2xl md:text-3xl font-light text-gray-900 mb-4">Our Story</h3>
               <p className="text-gray-600">Founded in 2015, we’ve grown from a small team into a leading design firm, driven by passion and excellence.</p>
             </div>
@@ -104,7 +104,7 @@ const About: React.FC = () => {
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <h2 className="text-section-title text-gray-900 mb-10">Values we hold</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
             {values.map((v, i) => (
               <div key={i} className="group perspective-1000">
                 <div className="relative h-48 rounded-2xl shadow-subtle transition-transform duration-500 transform-gpu [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
@@ -130,9 +130,9 @@ const About: React.FC = () => {
         <div className="container-custom">
           <h2 className="text-section-title text-gray-900 mb-8">Leadership</h2>
           <div className="rounded-3xl overflow-hidden border border-gray-100 shadow-subtle mb-10">
-            <img src="/assets/leadership-hero-image.jpg" alt="Leadership" className="w-full h-[320px] md:h-[420px] object-cover" />
+            <img src="/assets/leadership-hero-image.jpg" alt="Leadership" className="w-full h-[260px] sm:h-[320px] md:h-[420px] object-cover" />
           </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {leaders.map((m, idx) => (
               <div key={idx} className="bg-white rounded-2xl border border-gray-100 shadow-subtle overflow-hidden">
                 <div className="aspect-[4/5] w-full overflow-hidden">

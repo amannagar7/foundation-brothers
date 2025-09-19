@@ -8,23 +8,23 @@ const Footer: React.FC = () => {
       {/* Main Footer */}
       <footer className="bg-white border-t border-gray-200">
         <div className="container-custom section-padding">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 items-start">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 items-start">
             {/* Company Info */}
             <div>
-              <div className="flex items-center mb-6">
+              <div className="flex items-center mb-4 sm:mb-6">
                 <img 
                   src="/assets/logo.png" 
                   alt="Foundation Brothers" 
-                  className="h-12 w-auto mr-4"
+                  className="h-10 sm:h-12 w-auto mr-3 sm:mr-4"
                 />
-                <span className="text-2xl font-light text-gray-900 tracking-tight">Foundation Brothers</span>
+                <span className="text-xl sm:text-2xl font-light text-gray-900 tracking-tight">Foundation Brothers</span>
               </div>
-              <p className="text-gray-600 mb-8 leading-relaxed">
+              <p className="text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                 Professional construction services in Jaipur, Rajasthan. Building dreams with quality, reliability, and excellence.
               </p>
               
               {/* Contact Info */}
-              <div className="space-y-3 text-gray-600 mb-8">
+              <div className="space-y-2 sm:space-y-3 text-gray-600 mb-6 sm:mb-8">
                 <p className="flex items-center">
                   <span className="mr-3 text-xl">📧</span>
                   <span>info.foundationbrothers@gmail.com</span>
@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
               </div>
               
               {/* Social Media */}
-              <div className="flex space-x-4">
+              <div className="flex space-x-3 sm:space-x-4">
                 <a 
                   href="https://facebook.com/foundationbrothers" 
                   className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-all duration-300"
@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
             {/* Company */}
             <div className="sm:col-span-1">
               <h3 className="text-sm uppercase tracking-widest text-gray-500 mb-6">Company</h3>
-              <ul className="space-y-3 text-gray-700">
+              <ul className="space-y-2 sm:space-y-3 text-gray-700">
                 <li><Link to="/about" className="hover:text-gray-900 transition-colors">About Us</Link></li>
                 <li><Link to="/projects" className="hover:text-gray-900 transition-colors">Our Projects</Link></li>
                 <li><Link to="/contact" className="hover:text-gray-900 transition-colors">Contact Us</Link></li>
@@ -99,7 +99,7 @@ const Footer: React.FC = () => {
               <h3 className="text-sm uppercase tracking-widest text-gray-500 mb-6">Quick Contact</h3>
               
               {/* WhatsApp Button */}
-              <div className="mb-8">
+              <div className="mb-6 sm:mb-8">
                 <a 
                   href="https://wa.me/917374940023" 
                   className="inline-flex items-center bg-gray-900 text-white px-6 py-3 rounded-full font-medium text-sm tracking-wide hover:bg-black transition-all duration-300 mb-3"
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
               </div>
               
               {/* Legal Links */}
-              <div className="space-y-4 text-gray-700">
+              <div className="space-y-3 sm:space-y-4 text-gray-700">
                 <h4 className="text-sm uppercase tracking-widest text-gray-500">Legal</h4>
                 <ul className="space-y-2">
                   <li><Link to="/privacy" className="hover:text-gray-900 transition-colors">Privacy Policy</Link></li>

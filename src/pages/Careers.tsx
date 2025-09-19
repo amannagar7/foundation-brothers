@@ -6,7 +6,7 @@ export default function CareersPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Hero */}
-      <section className="mx-auto max-w-5xl px-6 pt-12 pb-10 sm:pt-16 sm:pb-12 text-center">
+      <section className="mx-auto max-w-5xl px-4 sm:px-6 pt-10 pb-8 sm:pt-16 sm:pb-12 text-center">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
           We are always looking for
           <br className="hidden sm:block" />
@@ -18,7 +18,7 @@ export default function CareersPage() {
 
         <p className="mt-8 font-medium text-muted-foreground">Foundation Brothers offering</p>
 
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-6">
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
           <Feature icon={<FlaskConical className="h-8 w-8 text-foreground/70" />} title={"Innovative Work\nEnvironment"} />
           <Feature icon={<BarChart3 className="h-8 w-8 text-foreground/70" />} title={"Opportunities\nfor Growth"} />
           <Feature icon={<Users className="h-8 w-8 text-foreground/70" />} title={"Collaborative\nCulture"} />
@@ -34,7 +34,7 @@ export default function CareersPage() {
       </section>
 
       {/* Current openings / Apply */}
-      <section className="mx-auto max-w-6xl px-6 py-12 sm:py-16">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 py-10 sm:py-16">
         <h2 className="text-2xl md:text-3xl font-semibold text-center">Current openings, apply today</h2>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {/* Left - visual + steps */}
@@ -42,7 +42,7 @@ export default function CareersPage() {
             <img
               src="/assets/hiring.jpg"
               alt="Office team working"
-              className="h-96 w-full object-cover object-top"
+              className="h-64 sm:h-80 md:h-96 w-full object-cover object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-black/20 to-transparent" />
             <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between">
@@ -57,7 +57,7 @@ export default function CareersPage() {
           </div>
 
           {/* Right - form */}
-          <div className="rounded-lg border border-border p-6 sm:p-8 bg-card">
+          <div className="rounded-lg border border-border p-5 sm:p-8 bg-card">
             <h3 className="text-lg font-medium">Add your details</h3>
             <HiringForm />
           </div>
@@ -65,7 +65,7 @@ export default function CareersPage() {
       </section>
 
       {/* Why we're special */}
-      <section id="why" className="mx-auto max-w-6xl px-6 py-12 sm:py-16">
+      <section id="why" className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16">
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
           <div>
             <h2 className="text-2xl md:text-3xl font-semibold">Why we’re special to work with</h2>
@@ -84,21 +84,21 @@ export default function CareersPage() {
               and you’ll be contacted if we have any openings in near future.
             </p>
           </div>
-          <div className="relative h-[460px]">
+          <div className="relative h-[360px] sm:h-[420px] md:h-[460px]">
             <img
               src="/assets/team-members.jpg"
               alt="Team group photo"
-              className="absolute left-6 top-6 h-64 w-64 sm:h-72 sm:w-72 object-cover rounded-md shadow-md rotate-[-4deg]"
+              className="absolute left-4 top-6 h-48 w-48 sm:h-64 sm:w-64 md:h-72 md:w-72 object-cover rounded-md shadow-md rotate-[-4deg]"
             />
             <img
               src="/assets/team-member-2.jpg"
               alt="Office celebration"
-              className="absolute right-8 top-0 h-40 w-56 object-cover rounded-md shadow-md rotate-[6deg]"
+              className="absolute right-6 top-0 h-32 w-44 sm:h-40 sm:w-56 object-cover rounded-md shadow-md rotate-[6deg]"
             />
             <img
               src="/assets/team-members-3.jpg"
               alt="Team in office"
-              className="absolute right-10 bottom-6 h-64 w-80 object-cover rounded-md shadow-md rotate-[2deg]"
+              className="absolute right-6 bottom-6 h-48 w-64 sm:h-64 sm:w-80 object-cover rounded-md shadow-md rotate-[2deg]"
             />
           </div>
         </div>

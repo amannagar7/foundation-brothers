@@ -19,10 +19,10 @@ const Header: React.FC = () => {
     <>
       {/* Top Information Bar - Reidius Infra Style */}
       <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-3 text-xs text-gray-900">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-3 text-[11px] sm:text-xs text-gray-900 gap-2">
             {/* Contact Information */}
-            <div className="flex items-center space-x-8">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-1">
               <div className="flex items-center space-x-2">
                 <span className="text-gray-600">📧</span>
                 <span>Email: info.foundationbrothers@gmail.com</span>
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
             </div>
             
             {/* Right Side Actions */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3 sm:space-x-4">
               {/* Free Badge */}
               <div className="bg-yellow-400 text-black px-3 py-1.5 rounded-full text-xs font-bold tracking-wide">
                 FREE
@@ -82,16 +82,16 @@ const Header: React.FC = () => {
 
       {/* Main Header - Reidius Infra Style */}
       <header className="bg-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4 sm:py-6">
             {/* Logo and Brand */}
             <Link to="/" className="flex items-center group">
               <img 
                 src="/assets/logo.png" 
                 alt="Foundation Brothers" 
-                className="h-10 w-auto mr-3 transition-transform duration-300 group-hover:scale-105"
+                className="h-8 sm:h-10 w-auto mr-2 sm:mr-3 transition-transform duration-300 group-hover:scale-105"
               />
-              <span className="text-2xl font-bold text-gray-900 tracking-tight">Foundation Brothers</span>
+              <span className="text-lg sm:text-2xl font-bold text-gray-900 tracking-tight">Foundation Brothers</span>
             </Link>
             
             {/* Desktop Navigation - Centered */}
@@ -140,7 +140,7 @@ const Header: React.FC = () => {
             
             {/* Mobile Menu Button */}
             <button 
-              className="lg:hidden text-2xl text-gray-600 hover:text-gray-800 transition"
+              className="lg:hidden text-2xl text-gray-600 hover:text-gray-800 transition p-2 -mr-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? '✕' : '☰'}
@@ -149,8 +149,8 @@ const Header: React.FC = () => {
           
           {/* Mobile Navigation Menu */}
           {isMobileMenuOpen && (
-            <div className="lg:hidden border-t border-gray-200 py-4">
-              <nav className="flex flex-col space-y-4">
+            <div className="lg:hidden border-t border-gray-200 py-3">
+              <nav className="flex flex-col space-y-2">
                 <Link 
                   to="/all-projects" 
                   className={`text-sm font-medium py-2 ${isActive('/all-projects') ? 'text-gray-900 font-bold' : 'text-gray-600'}`}
@@ -187,7 +187,7 @@ const Header: React.FC = () => {
                   Learn
                 </Link>
               </nav>
-              <div className="mt-6 flex flex-col space-y-3">
+              <div className="mt-4 flex flex-col space-y-3">
                 <button className="flex items-center justify-center space-x-2 bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />

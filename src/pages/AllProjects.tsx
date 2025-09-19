@@ -92,7 +92,7 @@ const AllProjects: React.FC = () => {
       </section>
 
       {/* Description Section (Dynamic) */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {activeCategory === 'Architecture' && (
             <>
@@ -100,7 +100,7 @@ const AllProjects: React.FC = () => {
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Architectural design & planning</h2>
                 <p className="text-lg text-gray-600 max-w-4xl">Architectural design creates cohesive, functional structures that balance aesthetics, culture, environment, and technology, combining creativity with practical functionality to inspire and serve occupants effectively.</p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
                 {[
                   { image: '/assets/contextual-integration.jpg', title: 'Contextual Integration', description: 'harmonizing with surroundings and culture' },
                   { image: '/assets/Structural-Integrity.jpg', title: 'Structural Integrity', description: 'ensuring durability, stability, and safety' },
@@ -127,7 +127,7 @@ const AllProjects: React.FC = () => {
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Interior design & renovation</h2>
                 <p className="text-lg text-gray-600 max-w-4xl">Interior design focuses on creating functional, aesthetic, and comfortable indoor spaces by optimizing layouts, materials, lighting, and décor to meet occupants' needs and enhance their experience.</p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6">
                 {[
                   { image: '/assets/Space-Optimization.jpg', title: 'Space Optimization', description: 'maximizing utility and comfort within the available space' },
                   { image: '/assets/Ergonomics.jpg', title: 'Ergonomics', description: 'ensuring furniture provides maximum comfort and support' },
@@ -155,7 +155,7 @@ const AllProjects: React.FC = () => {
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Residential home construction</h2>
                 <p className="text-lg text-gray-600 max-w-4xl">Residential construction blends personal comfort, modern efficiency, and cultural identity into homes that reflect lifestyle needs and ensure lasting value for families.</p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6">
                 {[
                   { image: '/assets/privacy-and-comfort.jpg', title: 'Privacy & Comfort', description: 'creating serene, secure living spaces' },
                   { image: '/assets/Lifestyle-Alignment.jpg', title: 'Lifestyle Alignment', description: 'tailoring homes to personal routines' },
@@ -183,7 +183,7 @@ const AllProjects: React.FC = () => {
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Commercial building design & construction</h2>
                 <p className="text-lg text-gray-600 max-w-4xl">Commercial design focuses on creating functional, adaptable, and brand-aligned spaces that enhance business operations, customer satisfaction, and long-term growth.</p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5 sm:gap-6">
                 {[
                   { image: '/assets/Brand-Identity.jpg', title: 'Brand Identity', description: 'reflecting corporate values and aesthetics' },
                   { image: '/assets/space-efficiency.jpg', title: 'Space Efficiency', description: 'optimizing layouts for productivity' },
@@ -209,7 +209,7 @@ const AllProjects: React.FC = () => {
       </section>
 
       {/* Projects Section (Dynamic) */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12">
             Projects
@@ -217,7 +217,7 @@ const AllProjects: React.FC = () => {
           
           {/* Projects Grid */}
           {['Architecture','Interior','Residential','Commercial'].includes(activeCategory) ? (
-            <div className={`grid gap-8 ${activeCategory === 'Commercial' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}>
+            <div className={`grid gap-6 sm:gap-8 ${activeCategory === 'Commercial' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}>
               {projectData[activeCategory as keyof typeof projectData].map((project, index) => (
                 <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   <div className="aspect-[4/3] overflow-hidden">
@@ -237,14 +237,14 @@ const AllProjects: React.FC = () => {
       </section>
 
       {/* Explore Other Categories Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12">
             Explore other categories
           </h2>
           
           {/* Category Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {[
               { 
                 category: 'Interior', 
@@ -286,11 +286,11 @@ const AllProjects: React.FC = () => {
       </section>
 
       {/* Form Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 items-start">
             {/* Left: Form */}
-            <div className="bg-yellow-400 rounded-3xl p-10">
+            <div className="bg-yellow-400 rounded-3xl p-6 sm:p-10">
               <h3 className="text-4xl font-bold text-gray-900 tracking-tight leading-tight mb-2">
                 Send us your enquiry, get a call back from us
               </h3>

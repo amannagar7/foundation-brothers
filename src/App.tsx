@@ -27,6 +27,7 @@ export default function App() {
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-grow">
+        <ScrollToTop />
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<Home />} />
@@ -90,4 +91,15 @@ export default function App() {
         <Footer />
       </div>
   );
+}
+
+// Scroll to top on route change
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+  }, [pathname]);
+  return null;
 }

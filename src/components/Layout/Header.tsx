@@ -20,57 +20,54 @@ const Header: React.FC = () => {
       {/* Top Information Bar - Reidius Infra Style */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 sm:py-3 text-[11px] sm:text-xs text-gray-900 gap-2">
+          {/* Mobile: horizontal chips */}
+          <div className="sm:hidden py-2 text-[12px] text-gray-900">
+            <div className="flex gap-2 overflow-x-auto no-scrollbar whitespace-nowrap">
+              <a href="mailto:info.foundationbrothers@gmail.com" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 bg-gray-50">
+                <span>📧</span>
+                <span>Email</span>
+              </a>
+              <a href="tel:+917374940023" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 bg-gray-50">
+                <span>📞</span>
+                <span>Call</span>
+              </a>
+              <button onClick={() => copyToClipboard('+91 7374940023')} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 bg-gray-50">
+                <span>🔧</span>
+                <span>Maint.</span>
+              </button>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-yellow-400 text-black font-semibold">FREE</span>
+              <a href="https://wa.me/917374940023" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 bg-gray-50">
+                <span>💬</span>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Desktop / tablet: full bar */}
+          <div className="hidden sm:flex sm:justify-between sm:items-center py-3 text-xs text-gray-900">
             {/* Contact Information */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-1">
+            <div className="flex items-center gap-x-8">
               <div className="flex items-center space-x-2">
                 <span className="text-gray-600">📧</span>
                 <span>Email: info.foundationbrothers@gmail.com</span>
-                <button 
-                  onClick={() => copyToClipboard('info.foundationbrothers@gmail.com')}
-                  className="text-gray-400 hover:text-gray-600 transition-colors duration-300 ml-1"
-                >
-                  📋
-                </button>
+                <button onClick={() => copyToClipboard('info.foundationbrothers@gmail.com')} className="text-gray-400 hover:text-gray-600 transition-colors duration-300 ml-1">📋</button>
               </div>
-              
               <div className="flex items-center space-x-2">
                 <span className="text-gray-600">📞</span>
                 <span>Contact: +91 7374940023</span>
-                <button 
-                  onClick={() => copyToClipboard('+91 7374940023')}
-                  className="text-gray-400 hover:text-gray-600 transition-colors duration-300 ml-1"
-                >
-                  📋
-                </button>
+                <button onClick={() => copyToClipboard('+91 7374940023')} className="text-gray-400 hover:text-gray-600 transition-colors duration-300 ml-1">📋</button>
               </div>
-              
               <div className="flex items-center space-x-2">
                 <span className="text-gray-600">🔧</span>
                 <span>Maintenance: +91 7374940023</span>
-                <button 
-                  onClick={() => copyToClipboard('+91 7374940023')}
-                  className="text-gray-400 hover:text-gray-600 transition-colors duration-300 ml-1"
-                >
-                  📋
-                </button>
+                <button onClick={() => copyToClipboard('+91 7374940023')} className="text-gray-400 hover:text-gray-600 transition-colors duration-300 ml-1">📋</button>
               </div>
             </div>
-            
+
             {/* Right Side Actions */}
-            <div className="flex items-center space-x-3 sm:space-x-4">
-              {/* Free Badge */}
-              <div className="bg-yellow-400 text-black px-3 py-1.5 rounded-full text-xs font-bold tracking-wide">
-                FREE
-              </div>
-              
-              {/* WhatsApp Button */}
-              <a 
-                href="https://wa.me/917374940023" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 hover:text-gray-700 transition-colors duration-300 group"
-              >
+            <div className="flex items-center space-x-4">
+              <div className="bg-yellow-400 text-black px-3 py-1.5 rounded-full text-xs font-bold tracking-wide">FREE</div>
+              <a href="https://wa.me/917374940023" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 hover:text-gray-700 transition-colors duration-300 group">
                 <span className="text-green-500 group-hover:text-green-600">💬</span>
                 <span className="font-medium">Book appointment now</span>
                 <span className="text-gray-500 group-hover:text-gray-700 transition-transform duration-300 group-hover:translate-x-1">→</span>

@@ -3,7 +3,7 @@ import Footer from '../components/Layout/Footer'
 import Toast from '../components/Toast'
 
 const AllProjects: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState('Commercial')
+  const [activeCategory, setActiveCategory] = useState('Architecture')
 
   const categories = ['Architecture', 'Interior', 'Residential', 'Commercial']
 

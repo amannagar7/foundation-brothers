@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
       {/* Main Footer */}
       <footer className="bg-white border-t border-gray-200">
         <div className="container-custom section-padding">
-          <div className="grid md:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 items-start">
             {/* Company Info */}
             <div>
               <div className="flex items-center mb-6">
@@ -83,7 +83,9 @@ const Footer: React.FC = () => {
             
             
             {/* Company */}
-            <div>
+            <div className="sm:col-span-1">
+            {/* Company */}
+            <div className="sm:col-span-1">
               <h3 className="text-sm uppercase tracking-widest text-gray-500 mb-6">Company</h3>
               <ul className="space-y-3 text-gray-700">
                 <li><Link to="/about" className="hover:text-gray-900 transition-colors">About Us</Link></li>
@@ -95,7 +97,7 @@ const Footer: React.FC = () => {
             </div>
             
             {/* Quick Contact & Legal */}
-            <div>
+            <div className="sm:col-span-1">
               <h3 className="text-sm uppercase tracking-widest text-gray-500 mb-6">Quick Contact</h3>
               
               {/* WhatsApp Button */}
@@ -129,9 +131,9 @@ const Footer: React.FC = () => {
       {/* Footer Bottom */}
       <div className="bg-gray-50 text-gray-600 py-8 border-t border-gray-200">
         <div className="container-custom">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="">&copy; 2025 Foundation Brothers. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+          <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
+            <p className="text-center md:text-left">&copy; 2025 Foundation Brothers. All rights reserved.</p>
+            <div className="flex justify-center md:justify-end space-x-6">
               <Link to="/privacy" className="hover:text-gray-900 transition-colors">Privacy Policy</Link>
               <Link to="/terms" className="hover:text-gray-900 transition-colors">Terms of Service</Link>
               <a href="#" className="hover:text-gray-900 transition-colors">Sitemap</a>

@@ -84,8 +84,6 @@ const Footer: React.FC = () => {
             
             {/* Company */}
             <div className="sm:col-span-1">
-            {/* Company */}
-            <div className="sm:col-span-1">
               <h3 className="text-sm uppercase tracking-widest text-gray-500 mb-6">Company</h3>
               <ul className="space-y-3 text-gray-700">
                 <li><Link to="/about" className="hover:text-gray-900 transition-colors">About Us</Link></li>

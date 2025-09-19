@@ -90,9 +90,16 @@ export default async function handler(req, res) {
   }
 }
 
+async function getFetch() {
+  if (typeof fetch !== 'undefined') return fetch
+  const mod = await import('node-fetch')
+  return mod.default
+}
+
 async function github(path, init = {}) {
   const url = `https://api.github.com/${path}`
-  const res = await fetch(url, {
+  const f = await getFetch()
+  const res = await f(url, {
     ...init,
     headers: {
       Authorization: `token ${TOKEN}`,

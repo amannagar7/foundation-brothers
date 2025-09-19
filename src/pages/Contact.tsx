@@ -266,7 +266,7 @@ function ContactForm() {
           duration={4000}
         />
       )}
-      <form onSubmit={onSubmit} className="mt-5 grid gap-3">
+    <form onSubmit={onSubmit} className="mt-5 grid gap-3">
       <LabeledInput placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
       <LabeledInput placeholder="Phone Number" inputMode="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
       <LabeledInput placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />

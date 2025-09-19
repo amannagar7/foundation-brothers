@@ -22,7 +22,30 @@ export default async function handler(req, res) {
 
   try {
     if (req.method === 'GET') {
-      const items = await list({ prefix: POSTS_PREFIX })
+      // Debug helper: /api/blog?debug=1
+      try {
+        const url = req?.url ? new URL(req.url, 'http://localhost') : null
+        if (url.searchParams.get('debug') === '1') {
+          const token = process.env.BLOB_READ_WRITE_TOKEN
+          const hasToken = Boolean(token)
+          let listOk = false
+          let listError = ''
+          try {
+            await list({ prefix: POSTS_PREFIX, token })
+            listOk = true
+          } catch (e) {
+            listError = e?.message || String(e)
+          }
+          return res.json({ ok: true, hasToken, listOk, listError, prefix: POSTS_PREFIX })
+        }
+      } catch {}
+
+      const token = process.env.BLOB_READ_WRITE_TOKEN
+      if (!token) {
+        return res.status(500).json({ error: 'Missing BLOB_READ_WRITE_TOKEN env on server' })
+      }
+
+      const items = await list({ prefix: POSTS_PREFIX, token })
       const posts = items.blobs
         .filter((b) => b.pathname.endsWith('.json'))
         .map((b) => ({ slug: b.pathname.replace(POSTS_PREFIX, '').replace(/\.json$/, ''), url: b.url }))
@@ -36,11 +59,16 @@ export default async function handler(req, res) {
 
       const slug = (inputSlug || slugify(title)).toLowerCase()
 
+      const token = process.env.BLOB_READ_WRITE_TOKEN
+      if (!token) {
+        return res.status(500).json({ error: 'Missing BLOB_READ_WRITE_TOKEN env on server' })
+      }
+
       let coverUrl = ''
       if (featuredImageBase64 && typeof featuredImageBase64 === 'string' && featuredImageBase64.startsWith('data:')) {
         const ext = featuredImageBase64.substring(5, featuredImageBase64.indexOf(';')).split('/')[1] || 'png'
         const buf = Buffer.from(featuredImageBase64.split(',')[1], 'base64')
-        const r = await put(`${POSTS_PREFIX}covers/${slug}.${ext}`, buf, { access: 'public' })
+        const r = await put(`${POSTS_PREFIX}covers/${slug}.${ext}`, buf, { access: 'public', token })
         coverUrl = r.url
       }
 
@@ -54,7 +82,7 @@ export default async function handler(req, res) {
         cover: coverUrl,
         contentHtml,
       }
-      const r2 = await put(`${POSTS_PREFIX}${slug}.json`, Buffer.from(JSON.stringify(json, null, 2)), { access: 'public', contentType: 'application/json' })
+      const r2 = await put(`${POSTS_PREFIX}${slug}.json`, Buffer.from(JSON.stringify(json, null, 2)), { access: 'public', contentType: 'application/json', token })
       return res.status(201).json({ ok: true, slug, url: r2.url })
     }
 

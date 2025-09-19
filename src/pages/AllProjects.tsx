@@ -157,7 +157,7 @@ const AllProjects: React.FC = () => {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                 {[
-                  { image: '/assets/privacy-&-comfort.jpg', title: 'Privacy & Comfort', description: 'creating serene, secure living spaces' },
+                  { image: '/assets/privacy-and-comfort.jpg', title: 'Privacy & Comfort', description: 'creating serene, secure living spaces' },
                   { image: '/assets/Lifestyle-Alignment.jpg', title: 'Lifestyle Alignment', description: 'tailoring homes to personal routines' },
                   { image: '/assets/Energy-Efficiency.jpg', title: 'Energy Efficiency', description: 'using sustainable, cost-saving technologies' },
                   { image: '/assets/Storage-Solutions.jpg', title: 'Storage Solutions', description: 'maximizing space with smart design' },
@@ -189,7 +189,7 @@ const AllProjects: React.FC = () => {
                   { image: '/assets/space-efficiency.jpg', title: 'Space Efficiency', description: 'optimizing layouts for productivity' },
                   { image: '/assets/customer-experience.jpg', title: 'Customer Experience', description: 'designing inviting and functional spaces' },
                   { image: '/assets/traffic-flow.jpg', title: 'Traffic Flow', description: 'managing movement for convenience' },
-                  { image: '/assets/compliance-&-safety.jpg', title: 'Compliance & Safety', description: 'adhering to regulations and safety standards' },
+                  { image: '/assets/compliance-and-safety.jpg', title: 'Compliance & Safety', description: 'adhering to regulations and safety standards' },
                   { image: '/assets/scalability.jpg', title: 'Scalability', description: 'supporting future expansion needs' },
                 ].map((card, index) => (
                   <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">

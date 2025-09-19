@@ -25,7 +25,7 @@ const Home: React.FC = () => {
               <div className="relative group mb-6 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
                 <div className="w-80 h-96 rounded-3xl overflow-hidden shadow-2xl shadow-gray-900/10 group-hover:shadow-3xl group-hover:shadow-gray-900/20 transition-all duration-500 group-hover:-translate-y-2">
                   <img 
-                    src="/assets/Hero Section Man Happy Sitting.jpg" 
+                    src="/assets/hero-section-man-happy-sitting.jpg" 
                     alt="Happy client relaxing" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
@@ -63,7 +63,7 @@ const Home: React.FC = () => {
               <div className="relative group mb-6 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
                 <div className="w-80 h-96 rounded-3xl overflow-hidden shadow-2xl shadow-gray-900/10 group-hover:shadow-3xl group-hover:shadow-gray-900/20 transition-all duration-500 group-hover:-translate-y-2">
                   <img 
-                    src="/assets/engineering people happy.jpg" 
+                    src="/assets/engineering-people-happy.jpg" 
                     alt="Professional engineering team" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
@@ -135,7 +135,7 @@ const Home: React.FC = () => {
               <div className="relative group">
                 <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-gray-900/10 group-hover:shadow-3xl group-hover:shadow-gray-900/20 transition-all duration-500">
                   <img 
-                    src="/assets/Indian family happy with home.jpg" 
+                    src="/assets/indian-family-happy-with-home.jpg" 
                     alt="Happy Indian family with their new home" 
                     className="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700"
                   />
@@ -169,10 +169,10 @@ const Home: React.FC = () => {
               {/* Track 1 */}
               <div className="flex gap-6 px-1 py-2">
                 {[
-                  { title: 'Construction & Management', img: '/assets/Construction & Management.jpg' },
-                  { title: 'Commercial Design', img: '/assets/Commercial  Design.jpg' },
-                  { title: 'Interior Design & Construction', img: '/assets/Interior Design & Construction.jpg' },
-                  { title: 'Home Design & Construction', img: '/assets/Home design & construction.jpg' },
+                  { title: 'Construction & Management', img: '/assets/construction-and-management.jpg' },
+                  { title: 'Commercial Design', img: '/assets/commercial-design.jpg' },
+                  { title: 'Interior Design & Construction', img: '/assets/interior-design-and-construction.jpg' },
+                  { title: 'Home Design & Construction', img: '/assets/home-design-and-construction.jpg' },
                 ].map((card, idx) => (
                   <div key={`a-${idx}`} className="min-w-[300px] w-[300px] bg-white rounded-2xl border border-gray-100 shadow-subtle overflow-hidden hover:shadow-lg transition-all duration-300">
                     <div className="p-5">
@@ -191,10 +191,10 @@ const Home: React.FC = () => {
               {/* Track 2 (duplicate for seamless loop) */}
               <div className="flex gap-6 px-1 py-2">
                 {[
-                  { title: 'Construction & Management', img: '/assets/Construction & Management.jpg' },
-                  { title: 'Commercial Design', img: '/assets/Commercial  Design.jpg' },
-                  { title: 'Interior Design & Construction', img: '/assets/Interior Design & Construction.jpg' },
-                  { title: 'Home Design & Construction', img: '/assets/Home design & construction.jpg' },
+                  { title: 'Construction & Management', img: '/assets/construction-and-management.jpg' },
+                  { title: 'Commercial Design', img: '/assets/commercial-design.jpg' },
+                  { title: 'Interior Design & Construction', img: '/assets/interior-design-and-construction.jpg' },
+                  { title: 'Home Design & Construction', img: '/assets/home-design-and-construction.jpg' },
                 ].map((card, idx) => (
                   <div key={`b-${idx}`} className="min-w-[300px] w-[300px] bg-white rounded-2xl border border-gray-100 shadow-subtle overflow-hidden hover:shadow-lg transition-all duration-300">
                     <div className="p-5">
@@ -353,7 +353,7 @@ const Home: React.FC = () => {
             </div>
             <div className="p-6">
               <div className="h-[260px] md:h-[320px] w-full overflow-hidden rounded-3xl border border-white/10 shadow-2xl shadow-black/40 relative">
-                <img src="/assets/Save-on-brokerage%20.avif" alt="Save on brokerage" className="w-full h-full object-cover object-center" />
+                <img src="/assets/save-on-brokerage.avif" alt="Save on brokerage" className="w-full h-full object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-l from-black/10 to-transparent" />
               </div>
             </div>

@@ -1,4 +1,6 @@
 // Serverless API for Blog using GitHub Contents API (Git-as-CMS)
+// Ensure Node runtime (Edge has no process.env)
+export const config = { runtime: 'nodejs20.x' }
 // Env required on Vercel: GITHUB_TOKEN, GITHUB_REPO (e.g. amannagar7/foundation-brothers),
 // GITHUB_AUTHOR_NAME, GITHUB_AUTHOR_EMAIL
 

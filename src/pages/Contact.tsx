@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Mail, MapPin, Phone, ArrowUpRight, MessageCircle } from "lucide-react";
+import Toast from '../components/Toast';
 
 const Contact: React.FC = () => {
   const enquiryPhone = "+917374940023";
@@ -207,11 +208,26 @@ function ContactForm() {
   const [phone, setPhone] = React.useState("");
   const [message, setMessage] = React.useState("");
   const [status, setStatus] = React.useState<"idle"|"sending"|"ok"|"error">("idle");
-  const [error, setError] = React.useState<string | null>(null);
+  const [showToast, setShowToast] = React.useState(false);
+  const [toastMessage, setToastMessage] = React.useState("");
+  const [toastType, setToastType] = React.useState<"success"|"error">("success");
+
+  const getSuccessMessage = () => {
+    const messages = [
+      "🎉 Fantastic! Your message is on its way to our team!",
+      "✨ Brilliant! We've got your message and we're excited to help!",
+      "🚀 Amazing! Your inquiry has been sent successfully!",
+      "💫 Perfect! Our team will get back to you soon!",
+      "🌟 Wonderful! Your message is safely delivered!",
+      "🎊 Excellent! We're thrilled to hear from you!",
+      "💎 Outstanding! Your request is in our hands now!",
+      "🔥 Incredible! We'll respond to you shortly!"
+    ];
+    return messages[Math.floor(Math.random() * messages.length)];
+  };
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null);
     setStatus("sending");
     try {
       const res = await fetch("http://localhost:5174/api/contact", {
@@ -225,24 +241,32 @@ function ContactForm() {
       }
       setStatus("ok");
       setName(""); setEmail(""); setPhone(""); setMessage("");
+      
+      // Show success toast
+      setToastMessage(getSuccessMessage());
+      setToastType("success");
+      setShowToast(true);
     } catch (err: any) {
-      setError(err.message || "Something went wrong");
       setStatus("error");
+      
+      // Show error toast
+      setToastMessage("Oops! Something went wrong. Please try again.");
+      setToastType("error");
+      setShowToast(true);
     }
   };
 
   return (
-    <form onSubmit={onSubmit} className="mt-5 grid gap-3">
-      {status === "ok" && (
-        <div className="rounded-md border border-green-600/30 bg-green-50 p-3 text-sm text-green-800">
-          Thanks! We’ve received your message. A confirmation email has been sent to you.
-        </div>
+    <>
+      {showToast && (
+        <Toast
+          message={toastMessage}
+          type={toastType}
+          onClose={() => setShowToast(false)}
+          duration={4000}
+        />
       )}
-      {error && (
-        <div className="rounded-md border border-destructive/30 bg-destructive/10 p-3 text-sm text-destructive">
-          {error}
-        </div>
-      )}
+      <form onSubmit={onSubmit} className="mt-5 grid gap-3">
       <LabeledInput placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
       <LabeledInput placeholder="Phone Number" inputMode="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
       <LabeledInput placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
@@ -251,5 +275,6 @@ function ContactForm() {
         {status === "sending" ? "Sending…" : "Submit"}
       </button>
     </form>
+    </>
   );
 }

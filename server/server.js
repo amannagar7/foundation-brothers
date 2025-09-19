@@ -16,7 +16,6 @@ app.use(bodyParser.json());
 const BRAND_TO = process.env.BRAND_TO || 'info.foundationbrothers@gmail.com';
 const BRAND_NAME = process.env.BRAND_NAME || 'Foundation Brothers';
 const BRAND_ADDRESS = process.env.BRAND_ADDRESS || 'Mansarovar, Jaipur, Rajasthan, India';
-const LOGO_URL = process.env.BRAND_LOGO_URL || 'http://localhost:5173/assets/logo.png';
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -34,9 +33,8 @@ function brandHeader(title) {
     <tr>
       <td></td>
       <td style="max-width:640px;margin:0 auto;background:white;border:1px solid #edf0f3;border-radius:12px;overflow:hidden">
-        <div style="padding:20px 24px;border-bottom:1px solid #f0f2f5;display:flex;align-items:center;gap:12px">
-          <img src="${LOGO_URL}" alt="${BRAND_NAME}" height="28" />
-          <span style="font-weight:600;color:#111827">${BRAND_NAME}</span>
+        <div style="padding:20px 24px;border-bottom:1px solid #f0f2f5;text-align:center">
+          <span style="font-weight:600;color:#111827;font-size:20px">${BRAND_NAME}</span>
         </div>
         <div style="padding:24px">`;
 }

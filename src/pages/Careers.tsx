@@ -1,4 +1,6 @@
 import { BarChart3, FlaskConical, Users, Warehouse, CheckCircle2, Linkedin } from "lucide-react";
+import React, { useState } from "react";
+import Toast from '../components/Toast';
 
 export default function CareersPage() {
   return (
@@ -57,19 +59,7 @@ export default function CareersPage() {
           {/* Right - form */}
           <div className="rounded-lg border border-border p-6 sm:p-8 bg-card">
             <h3 className="text-lg font-medium">Add your details</h3>
-            <form className="mt-6 grid gap-4">
-              <LabeledInput label="Name" placeholder="Your name" />
-              <div className="grid grid-cols-3 gap-3">
-                <LabeledInput label="Mobile" placeholder="91+" />
-                <LabeledInput label="" placeholder="00000 00000" className="col-span-2" />
-              </div>
-              <LabeledInput label="Email" type="email" placeholder="you@mail.com" />
-              <LabeledInput label="Location" placeholder="City" />
-              <LabeledInput label="LinkedIn" placeholder="www.linkedin.com/youraccount" />
-              <button type="button" className="mt-2 inline-flex items-center justify-center rounded-md bg-black text-white px-4 py-2 text-sm hover:opacity-90 disabled:opacity-50">
-                Next
-              </button>
-            </form>
+            <HiringForm />
           </div>
         </div>
       </section>
@@ -127,6 +117,178 @@ function Feature({ icon, title }: { icon: React.ReactNode; title: string }) {
         <p className="text-sm">{line2}</p>
       </div>
     </div>
+  );
+}
+
+function HiringForm() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [location, setLocation] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+  const [experience, setExperience] = useState("");
+  const [position, setPosition] = useState("");
+  const [status, setStatus] = useState<"idle"|"sending"|"ok"|"error">("idle");
+  const [step, setStep] = useState(1);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastType, setToastType] = useState<"success"|"error">("success");
+
+  const getSuccessMessage = () => {
+    const messages = [
+      "🎯 Amazing! Your job application is on its way!",
+      "✨ Fantastic! We're excited to review your profile!",
+      "🚀 Brilliant! Our HR team will contact you soon!",
+      "💫 Perfect! Your application is successfully submitted!",
+      "🌟 Wonderful! We'll get back to you if there's a match!",
+      "🎊 Excellent! Your career journey with us starts now!",
+      "💎 Outstanding! We're thrilled to see your interest!",
+      "🔥 Incredible! Welcome to the Foundation Brothers family!"
+    ];
+    return messages[Math.floor(Math.random() * messages.length)];
+  };
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+    try {
+      const res = await fetch("http://localhost:5174/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          name, 
+          email, 
+          phone, 
+          message: `Job Application - Position: ${position}, Experience: ${experience}, Location: ${location}, LinkedIn: ${linkedin}` 
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || data.error) {
+        throw new Error(data.error || "Failed to send");
+      }
+      setStatus("ok");
+      setName(""); setPhone(""); setEmail(""); setLocation(""); setLinkedin(""); setExperience(""); setPosition("");
+      
+      // Show success toast
+      setToastMessage(getSuccessMessage());
+      setToastType("success");
+      setShowToast(true);
+    } catch (err: any) {
+      setStatus("error");
+      
+      // Show error toast
+      setToastMessage("Oops! Something went wrong. Please try again.");
+      setToastType("error");
+      setShowToast(true);
+    }
+  };
+
+  return (
+    <>
+      {showToast && (
+        <Toast
+          message={toastMessage}
+          type={toastType}
+          onClose={() => setShowToast(false)}
+          duration={4000}
+        />
+      )}
+      <form onSubmit={onSubmit} className="mt-6 grid gap-4">
+      
+      {step === 1 && (
+        <>
+          <LabeledInput 
+            label="Name" 
+            placeholder="Your name" 
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <div className="grid grid-cols-3 gap-3">
+            <LabeledInput 
+              label="Mobile" 
+              placeholder="91+" 
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+            />
+            <LabeledInput 
+              label="" 
+              placeholder="00000 00000" 
+              className="col-span-2"
+            />
+          </div>
+          <LabeledInput 
+            label="Email" 
+            type="email" 
+            placeholder="you@mail.com" 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <LabeledInput 
+            label="Location" 
+            placeholder="City" 
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            required
+          />
+          <LabeledInput 
+            label="LinkedIn" 
+            placeholder="www.linkedin.com/youraccount" 
+            value={linkedin}
+            onChange={(e) => setLinkedin(e.target.value)}
+          />
+          <button 
+            type="button" 
+            onClick={() => setStep(2)}
+            className="mt-2 inline-flex items-center justify-center rounded-md bg-black text-white px-4 py-2 text-sm hover:opacity-90 disabled:opacity-50"
+          >
+            Next
+          </button>
+        </>
+      )}
+
+      {step === 2 && (
+        <>
+          <LabeledInput 
+            label="Position Applied For" 
+            placeholder="e.g., Civil Engineer, Project Manager" 
+            value={position}
+            onChange={(e) => setPosition(e.target.value)}
+            required
+          />
+          <div>
+            <label className="text-xs text-muted-foreground mb-1 block">Experience</label>
+            <textarea
+              placeholder="Tell us about your relevant experience..."
+              value={experience}
+              onChange={(e) => setExperience(e.target.value)}
+              required
+              rows={4}
+              className="h-10 w-full rounded-md border border-input bg-background px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
+            />
+          </div>
+          <div className="flex gap-2">
+            <button 
+              type="button" 
+              onClick={() => setStep(1)}
+              className="flex-1 inline-flex items-center justify-center rounded-md border border-border bg-background px-4 py-2 text-sm hover:opacity-90"
+            >
+              Back
+            </button>
+            <button 
+              type="submit" 
+              disabled={status === "sending"}
+              className="flex-1 inline-flex items-center justify-center rounded-md bg-black text-white px-4 py-2 text-sm hover:opacity-90 disabled:opacity-50"
+            >
+              {status === "sending" ? "Submitting..." : "Submit Application"}
+            </button>
+          </div>
+        </>
+      )}
+    </form>
+    </>
   );
 }
 

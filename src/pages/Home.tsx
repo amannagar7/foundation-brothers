@@ -1,7 +1,11 @@
 import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Toast from '../components/Toast'
+import EnquiryForm from '../components/EnquiryForm'
 
 const Home: React.FC = () => {
+  const [isEnquiryFormOpen, setIsEnquiryFormOpen] = useState(false);
+
   return (
     <div>
       {/* Hero Section - Apple-Like Split Design */}
@@ -76,9 +80,12 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        {/* Floating CTA - Bottom Right (Redesigned) */}
-        <div className="fixed bottom-6 right-6 z-40 hidden md:block animate-fade-in-up" style={{animationDelay: '1s'}}>
-          <Link to="/contact" className="group">
+        {/* Floating CTA - Bottom Left (Redesigned) */}
+        <div className="fixed bottom-6 left-6 z-40 hidden md:block animate-fade-in-up" style={{animationDelay: '1s'}}>
+          <button 
+            onClick={() => setIsEnquiryFormOpen(true)}
+            className="group"
+          >
             <div className="flex items-center gap-3 bg-white rounded-2xl border border-gray-100 shadow-2xl shadow-gray-900/10 p-3 pr-4 transition-all duration-300 group-hover:shadow-3xl group-hover:-translate-y-0.5">
               <div className="relative w-12 h-12 rounded-xl overflow-hidden">
                 <img src="/assets/bottom-corner-cta.avif" alt="Experts" className="w-full h-full object-cover" />
@@ -92,7 +99,7 @@ const Home: React.FC = () => {
                 <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-900 text-white group-hover:bg-black transition-colors">→</span>
               </div>
             </div>
-          </Link>
+          </button>
         </div>
       </section>
 
@@ -565,6 +572,12 @@ const Home: React.FC = () => {
           <FAQSection />
         </div>
       </section>
+
+      {/* Enquiry Form Modal */}
+      <EnquiryForm 
+        isOpen={isEnquiryFormOpen} 
+        onClose={() => setIsEnquiryFormOpen(false)} 
+      />
     </div>
   )
 }
@@ -775,32 +788,112 @@ const FAQSection: React.FC = () => {
   )
 }
 
-// Form component (unstyled logic kept minimal, purely presentational inputs)
+// Form component with full functionality
 const EstimationForm: React.FC = () => {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [phone, setPhone] = React.useState("");
+  const [message, setMessage] = React.useState("");
+  const [status, setStatus] = React.useState<"idle"|"sending"|"ok"|"error">("idle");
+  const [showToast, setShowToast] = React.useState(false);
+  const [toastMessage, setToastMessage] = React.useState("");
+  const [toastType, setToastType] = React.useState<"success"|"error">("success");
+
+  const getSuccessMessage = () => {
+    const messages = [
+      "🏠 Awesome! Your dream home inquiry is on its way!",
+      "✨ Fantastic! We're excited to help build your vision!",
+      "🚀 Brilliant! Our experts will contact you soon!",
+      "💫 Perfect! Your estimation request is received!",
+      "🌟 Wonderful! We'll get back to you within 2 days!",
+      "🎊 Excellent! Your project details are safely delivered!",
+      "💎 Outstanding! We're thrilled to work with you!",
+      "🔥 Incredible! Your home journey starts now!"
+    ];
+    return messages[Math.floor(Math.random() * messages.length)];
+  };
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+    try {
+      const res = await fetch("http://localhost:5174/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, message }),
+      });
+      const data = await res.json();
+      if (!res.ok || data.error) {
+        throw new Error(data.error || "Failed to send");
+      }
+      setStatus("ok");
+      setName(""); setEmail(""); setPhone(""); setMessage("");
+      
+      // Show success toast
+      setToastMessage(getSuccessMessage());
+      setToastType("success");
+      setShowToast(true);
+    } catch (err: any) {
+      setStatus("error");
+      
+      // Show error toast
+      setToastMessage("Oops! Something went wrong. Please try again.");
+      setToastType("error");
+      setShowToast(true);
+    }
+  };
+
   return (
-    <form className="space-y-4">
+    <>
+      {showToast && (
+        <Toast
+          message={toastMessage}
+          type={toastType}
+          onClose={() => setShowToast(false)}
+          duration={4000}
+        />
+      )}
+      <form onSubmit={onSubmit} className="space-y-4">
       <input
         type="text"
         placeholder="Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        required
         className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition"
       />
       <input
         type="tel"
         placeholder="Phone Number"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
         className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition"
       />
       <input
         type="email"
         placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
         className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition"
       />
       <textarea
         rows={5}
         placeholder="Message"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        required
         className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900 transition"
       />
-      <button type="submit" className="w-full bg-gray-900 text-white rounded-xl py-3 font-medium hover:bg-gray-800 transition">Submit</button>
+      <button 
+        type="submit" 
+        disabled={status === "sending"}
+        className="w-full bg-gray-900 text-white rounded-xl py-3 font-medium hover:bg-gray-800 disabled:opacity-60 transition"
+      >
+        {status === "sending" ? "Sending..." : "Submit"}
+      </button>
     </form>
+    </>
   )
 }
 

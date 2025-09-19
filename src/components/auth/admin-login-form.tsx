@@ -10,7 +10,7 @@ export const AdminLoginForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const reason = search.get("reason");
+  const reason = search[0].get("reason");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

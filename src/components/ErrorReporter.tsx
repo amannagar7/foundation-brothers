@@ -11,7 +11,7 @@ type ReporterProps = {
 export default function ErrorReporter({ error, reset }: ReporterProps) {
   /* ─ instrumentation shared by every route ─ */
   const lastOverlayMsg = useRef("");
-  const pollRef = useRef<NodeJS.Timeout>();
+  const pollRef = useRef<number>();
 
   useEffect(() => {
     const inIframe = window.parent !== window;
@@ -108,7 +108,7 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
             </p>
           </div>
           <div className="space-y-2">
-            {process.env.NODE_ENV === "development" && (
+            {import.meta.env.DEV && (
               <details className="mt-4 text-left">
                 <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground">
                   Error details

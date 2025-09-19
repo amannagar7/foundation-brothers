@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import bcrypt from "bcryptjs";
 
-const PUBLIC_EMAIL = process.env.NEXT_PUBLIC_ADMIN_EMAIL || "";
-const PUBLIC_HASH = process.env.NEXT_PUBLIC_ADMIN_PASSWORD_HASH || "";
+const PUBLIC_EMAIL = import.meta.env.VITE_ADMIN_EMAIL || "";
+const PUBLIC_HASH = import.meta.env.VITE_ADMIN_PASSWORD_HASH || "";
 
 const TOKEN_KEY = "demo_admin_token";
 const DEMO_BEARER = "Bearer demo-admin-token";

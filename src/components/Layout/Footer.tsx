@@ -80,18 +80,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
             
-            {/* Services */}
-            <div>
-              <h3 className="text-sm uppercase tracking-widest text-gray-500 mb-6">Our Services</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li><Link to="/services" className="hover:text-gray-900 transition-colors">Construction</Link></li>
-                <li><Link to="/services" className="hover:text-gray-900 transition-colors">Maintenance</Link></li>
-                <li><Link to="/services" className="hover:text-gray-900 transition-colors">Consultation</Link></li>
-                <li><Link to="/services" className="hover:text-gray-900 transition-colors">Project Management</Link></li>
-                <li><Link to="/services" className="hover:text-gray-900 transition-colors">Residential Projects</Link></li>
-                <li><Link to="/services" className="hover:text-gray-900 transition-colors">Commercial Projects</Link></li>
-              </ul>
-            </div>
+            
             
             {/* Company */}
             <div>

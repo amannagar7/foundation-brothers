@@ -10,6 +10,21 @@ const AUTHOR_EMAIL = process.env.GITHUB_AUTHOR_EMAIL || 'bot@example.com'
 
 const POSTS_DIR = 'content/posts'
 
+function readJsonBody(req) {
+  return new Promise((resolve, reject) => {
+    let data = ''
+    req.on('data', (c) => (data += c))
+    req.on('end', () => {
+      try {
+        resolve(data ? JSON.parse(data) : {})
+      } catch {
+        resolve({})
+      }
+    })
+    req.on('error', reject)
+  })
+}
+
 export default async function handler(req, res) {
   if (!REPO || !TOKEN) {
     return res.status(500).json({ error: 'Missing GITHUB_REPO or GITHUB_TOKEN env' })
@@ -28,7 +43,8 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'POST') {
-      const { title, slug: inputSlug, excerpt = '', contentHtml = '', tags = [], author = '', featuredImageBase64 } = req.body || {}
+      const body = await readJsonBody(req)
+      const { title, slug: inputSlug, excerpt = '', contentHtml = '', tags = [], author = '', featuredImageBase64 } = body || {}
       if (!title) return res.status(400).json({ error: 'Title is required' })
 
       const slug = (inputSlug || slugify(title)).toLowerCase()

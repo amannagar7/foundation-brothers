@@ -18,6 +18,29 @@ export type BlogPost = {
 
 const KEY = "blog.posts";
 
+// New API-backed helpers
+async function api<T>(path: string, init?: RequestInit): Promise<T> {
+  const res = await fetch(path, {
+    headers: { "Content-Type": "application/json" },
+    ...(init || {}),
+  });
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+
+export async function createPostViaApi(input: Omit<BlogPost, "id"|"createdAt"|"updatedAt"> & { featuredImageBase64?: string }): Promise<{ ok: boolean; slug: string }>{
+  const body = {
+    title: input.title,
+    slug: input.slug,
+    excerpt: input.excerpt,
+    contentHtml: input.contentHtml,
+    tags: input.tags,
+    author: input.author,
+    featuredImageBase64: (input as any).featuredImageBase64,
+  };
+  return api("/api/blog", { method: "POST", body: JSON.stringify(body) });
+}
+
 export function listPosts(): BlogPost[] {
   try {
     const raw = localStorage.getItem(KEY);

@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from "react";
-import { BlogPost, deletePost, generateSlug, listPosts, publishPost, savePost } from "../../lib/blog";
+import { BlogPost, deletePost, generateSlug, listPosts, publishPost, savePost, createPostViaApi } from "../../lib/blog";
 
 type Draft = {
   id?: string;
@@ -41,8 +41,9 @@ export function BlogManager() {
     setEditing({ id: p.id, title: p.title, slug: p.slug, excerpt: p.excerpt || "", contentHtml: p.contentHtml, tags: p.tags.join(", "), author: p.author || "", featuredImageUrl: p.featuredImageUrl || "", status: p.status });
   };
 
-  const onSave = () => {
+  const onSave = async () => {
     if (!editing) return;
+    // Save locally for draft experience
     const post = savePost({
       id: editing.id,
       title: editing.title.trim(),
@@ -55,6 +56,24 @@ export function BlogManager() {
       status: editing.status,
       publishedAt: undefined,
     } as any);
+    // If marked published, send to API to persist in Git
+    try {
+      if (editing.status === "published") {
+        await createPostViaApi({
+          title: post.title,
+          slug: post.slug,
+          excerpt: post.excerpt,
+          contentHtml: post.contentHtml,
+          tags: post.tags,
+          author: post.author,
+          featuredImageBase64: editing.featuredImageUrl,
+          status: "published" as any,
+        } as any);
+      }
+    } catch(e) {
+      console.error("Failed to persist to Git:", e);
+      alert("Saved locally but failed to publish to Git. You can try again.");
+    }
     setEditing(null);
     setPosts(listPosts());
   };

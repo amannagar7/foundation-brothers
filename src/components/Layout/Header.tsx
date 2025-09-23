@@ -35,10 +35,14 @@ const Header: React.FC = () => {
                 <span>🔧</span>
                 <span>Maint.</span>
               </button>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-yellow-400 text-black font-semibold">FREE</span>
-              <a href="https://wa.me/917374940023" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 bg-gray-50">
+              <a
+                href="https://wa.me/917374940023"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-600 text-white shadow-sm active:shadow-none active:translate-y-px transition"
+              >
                 <span>💬</span>
-                <span>WhatsApp</span>
+                <span className="font-medium">Book Appointment</span>
               </a>
             </div>
           </div>

@@ -20,22 +20,12 @@ const About: React.FC = () => {
   ]
 
   const leaders = [
-    // Co-founders and MDs
     { img: '/assets/co-founder/ER-Aman-Nagar.jpeg', name: 'ER. Aman Nagar', role: 'Co‑Founder & MD' },
     { img: '/assets/co-founder/ER-Shahrukh-Khan.jpg', name: 'ER. Shahrukh Khan', role: 'Co‑Founder & MD' },
     { img: '/assets/co-founder/ER-Ravi-Batra.jpg', name: 'ER. Ravi Batra', role: 'Co‑Founder & MD' },
-    // Core leadership team (requested profiles retained)
-    { img: '/assets/Aarav-Sharma.jpg', name: 'Aarav Sharma', role: 'Architect' },
-    { img: '/assets/Rajeev-Gupta.jpg', name: 'Rajeev Gupta', role: 'Architect' },
-    { img: '/assets/Vikram-Singh.jpg', name: 'Vikram Singh', role: 'Site Lead' },
-    { img: '/assets/Manish-Kumar.jpg', name: 'Manish Kumar', role: 'Founding Team Member' },
-    { img: '/assets/Aditya-Verma.jpg', name: 'Aditya Verma', role: 'Senior Engineer' },
-    { img: '/assets/Pradeep-Yadav.jpg', name: 'Pradeep Yadav', role: 'Procurement Lead' },
-    { img: '/assets/Ravi-Patel.jpg', name: 'Ravi Patel', role: 'Sr. Supervisor' },
-    { img: '/assets/Rohit-saini.jpg', name: 'Rohit Saini', role: 'Project Engineer' },
-    { img: '/assets/Anurag-Saxena.jpg', name: 'Anurag Saxena', role: 'Planning Engineer' },
-    { img: '/assets/Gaurav-Puri.jpg', name: 'Gaurav Puri', role: 'Finance Lead' },
-    { img: '/assets/Nitin-Rajput.jpg', name: 'Nitin Rajput', role: 'Quality Lead' },
+    { img: '/assets/Manish-Kumar.jpg', name: 'Manish Kumar', role: 'Structural Engineer' },
+    { img: '/assets/Aditya-Verma.jpg', name: 'Aditya Verma', role: 'Sr. Architect' },
+    { img: '/assets/Pradeep-Yadav.jpg', name: 'Pradeep Yadav', role: 'Customer Relationship Manager' },
   ]
 
   return (
@@ -56,14 +46,10 @@ const About: React.FC = () => {
       {/* Stats Section (same styling as Homepage accomplishments) */}
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="container-custom">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-light text-gray-900 tracking-tight">Our accomplishments</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 items-start text-center">
-            <div>
-              <div className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight mb-2">120<span className="align-super text-2xl">*</span></div>
-              <div className="text-gray-600 text-base md:text-lg">Days Guarantee To Build</div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 items-start text-center">
             <div>
               <div className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight mb-2">50<span className="text-3xl">+</span></div>
               <div className="text-gray-600 text-base md:text-lg">Design Experts</div>
@@ -128,11 +114,8 @@ const About: React.FC = () => {
       {/* Leadership */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <h2 className="text-section-title text-gray-900 mb-8">Leadership</h2>
-          <div className="rounded-3xl overflow-hidden border border-gray-100 shadow-subtle mb-10">
-            <img src="/assets/leadership-hero-image.jpg" alt="Leadership" className="w-full h-[260px] sm:h-[320px] md:h-[420px] object-cover" />
-          </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          <h2 className="text-section-title text-gray-900 mb-6">Leadership</h2>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {leaders.map((m, idx) => (
               <div key={idx} className="bg-white rounded-2xl border border-gray-100 shadow-subtle overflow-hidden">
                 <div className="aspect-[4/5] w-full overflow-hidden">

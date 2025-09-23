@@ -241,25 +241,18 @@ const Home: React.FC = () => {
       {/* Accomplishments Section - Apple-Like (placed directly after offerings) */}
       <section className="py-20 bg-gray-50">
         <div className="container-custom">
-          <div className="text-center mb-14">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-light text-gray-900 tracking-tight animate-fade-in-up">Our accomplishments</h2>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start text-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start text-center">
             {/* Stat 1 */}
             <div className="animate-fade-in-up" style={{animationDelay: '0.1s'}}>
-              <div className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight mb-2">120<span className="align-super text-2xl">*</span></div>
-              <div className="text-gray-600 text-base md:text-lg">Days Guarantee To Build</div>
-            </div>
-
-            {/* Stat 2 */}
-            <div className="animate-fade-in-up" style={{animationDelay: '0.2s'}}>
               <div className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight mb-2">50<span className="text-3xl">+</span></div>
               <div className="text-gray-600 text-base md:text-lg">Design Experts</div>
             </div>
 
-            {/* Stat 3 */}
-            <div className="animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+            {/* Stat 2 */}
+            <div className="animate-fade-in-up" style={{animationDelay: '0.2s'}}>
               <div className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight mb-2">250<span className="text-3xl">+</span></div>
               <div className="text-gray-600 text-base md:text-lg">Homes Constructed</div>
             </div>

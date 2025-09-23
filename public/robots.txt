@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Disallow admin pages
+Disallow: /admin/
+Disallow: /admin/login
+Disallow: /admin/users
+Disallow: /admin/audit
+Disallow: /admin/blog
+
+# Sitemap location
+Sitemap: https://foundationbrothers.com/sitemap.xml

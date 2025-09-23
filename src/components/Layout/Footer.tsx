@@ -34,6 +34,14 @@ const Footer: React.FC = () => {
                   <span>+91 7374940023</span>
                 </p>
                 <p className="flex items-center">
+                  <span className="mr-3 text-xl">📞</span>
+                  <span>+91 7062898920</span>
+                </p>
+                <p className="flex items-center">
+                  <span className="mr-3 text-xl">📞</span>
+                  <span>+91 9610708242</span>
+                </p>
+                <p className="flex items-center">
                   <span className="mr-3 text-xl">📍</span>
                   <span>Mansarovar, Jaipur, Rajasthan</span>
                 </p>
@@ -88,8 +96,8 @@ const Footer: React.FC = () => {
               <ul className="space-y-2 sm:space-y-3 text-gray-700">
                 <li><Link to="/about" className="hover:text-gray-900 transition-colors">About Us</Link></li>
                 <li><Link to="/contact" className="hover:text-gray-900 transition-colors">Contact Us</Link></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Blog</a></li>
+                <li><Link to="/careers" className="hover:text-gray-900 transition-colors">Careers</Link></li>
+                <li><Link to="/learn" className="hover:text-gray-900 transition-colors">Blog</Link></li>
               </ul>
             </div>
             
@@ -133,7 +141,7 @@ const Footer: React.FC = () => {
             <div className="flex justify-center md:justify-end space-x-6">
               <Link to="/privacy" className="hover:text-gray-900 transition-colors">Privacy Policy</Link>
               <Link to="/terms" className="hover:text-gray-900 transition-colors">Terms of Service</Link>
-              <a href="#" className="hover:text-gray-900 transition-colors">Sitemap</a>
+              <Link to="/sitemap" className="hover:text-gray-900 transition-colors">Sitemap</Link>
             </div>
           </div>
         </div>

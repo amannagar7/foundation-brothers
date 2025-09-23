@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Footer from '../components/Layout/Footer'
 import Toast from '../components/Toast'
 
 const AllProjects: React.FC = () => {
@@ -321,8 +320,6 @@ const AllProjects: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <Footer />
     </div>
   )
 }

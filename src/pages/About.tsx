@@ -32,7 +32,7 @@ const About: React.FC = () => {
     { img: '/assets/Aditya-Verma.jpg', name: 'Aditya Verma', role: 'Senior Engineer' },
     { img: '/assets/Pradeep-Yadav.jpg', name: 'Pradeep Yadav', role: 'Procurement Lead' },
     { img: '/assets/Ravi-Patel.jpg', name: 'Ravi Patel', role: 'Sr. Supervisor' },
-    { img: '/assets/Rohit-Saini.jpg', name: 'Rohit Saini', role: 'Project Engineer' },
+    { img: '/assets/Rohit-saini.jpg', name: 'Rohit Saini', role: 'Project Engineer' },
     { img: '/assets/Anurag-Saxena.jpg', name: 'Anurag Saxena', role: 'Planning Engineer' },
     { img: '/assets/Gaurav-Puri.jpg', name: 'Gaurav Puri', role: 'Finance Lead' },
     { img: '/assets/Nitin-Rajput.jpg', name: 'Nitin Rajput', role: 'Quality Lead' },

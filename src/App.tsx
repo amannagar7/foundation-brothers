@@ -18,6 +18,7 @@ import Learn from "./pages/Learn";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Sitemap from "./pages/Sitemap";
 // Placeholder stubs for Users/Audit pages in routes form
 const Users = () => <div className="p-2">Users — coming soon</div>;
 const Audit = () => <div className="p-2">Audit — coming soon</div>;
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/sitemap" element={<Sitemap />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route
             path="/admin"

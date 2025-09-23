@@ -5,6 +5,8 @@ import Toast from '../components/Toast';
 const Contact: React.FC = () => {
   const enquiryPhone = "+917374940023";
   const maintenancePhone = "+917374940023";
+  const additionalPhone1 = "+917062898920";
+  const additionalPhone2 = "+919610708242";
   const email = "info.foundationbrothers@gmail.com";
   const address = "Mansarovar, Jaipur, Rajasthan, India";
   const gmapUrl = "https://www.google.com/maps?q=26.9124,75.7873&hl=en&z=14";
@@ -37,6 +39,8 @@ const Contact: React.FC = () => {
                 <div>
                   <p>Enquiry: <a className="underline underline-offset-2" href={`tel:${enquiryPhone}`}>{enquiryPhone}</a></p>
                   <p>Maintenance: <a className="underline underline-offset-2" href={`tel:${maintenancePhone}`}>{maintenancePhone}</a></p>
+                  <p>Additional: <a className="underline underline-offset-2" href={`tel:${additionalPhone1}`}>{additionalPhone1}</a></p>
+                  <p>Additional: <a className="underline underline-offset-2" href={`tel:${additionalPhone2}`}>{additionalPhone2}</a></p>
                 </div>
               }
             />

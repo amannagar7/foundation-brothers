@@ -51,12 +51,12 @@ const About: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 items-start text-center">
             <div>
-              <div className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight mb-2">50<span className="text-3xl">+</span></div>
-              <div className="text-gray-600 text-base md:text-lg">Design Experts</div>
+              <div className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight mb-2">45<span className="text-3xl">+</span></div>
+              <div className="text-gray-600 text-base md:text-lg">Homes Constructed</div>
               </div>
             <div>
-              <div className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight mb-2">250<span className="text-3xl">+</span></div>
-              <div className="text-gray-600 text-base md:text-lg">Homes Constructed</div>
+              <div className="text-5xl md:text-6xl font-light text-gray-900 tracking-tight mb-2">20<span className="text-3xl">+</span></div>
+              <div className="text-gray-600 text-base md:text-lg">Design Experts</div>
             </div>
               </div>
             </div>
